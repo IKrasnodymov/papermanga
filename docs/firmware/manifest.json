@@ -1,6 +1,6 @@
 {
   "name": "PaperManga + CrossPoint для Xteink X4 Classic",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "new_install_prompt_erase": true,
   "builds": [
     {
