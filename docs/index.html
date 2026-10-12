@@ -42,9 +42,9 @@
   .hero { position: relative; overflow: hidden; border-bottom: 4px solid var(--ink); }
   .hero::before { content: ""; position: absolute; inset: 0; opacity: .13; }
   .hero .speedbg { position: absolute; inset: 0; opacity: .12; }
-  .hero .wrap { position: relative; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 40px; align-items: center;
+  .hero .wrap { position: relative; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 64px; align-items: center;
                 padding-top: 64px; padding-bottom: 72px; }
-  .hero h1 { font-size: clamp(40px, 5.6vw, 68px); line-height: 1.12; margin: 18px 0 22px; }
+  .hero h1 { font-size: clamp(38px, 4vw, 54px); line-height: 1.12; margin: 18px 0 22px; }
   .hero h1 em { font-style: normal; background: var(--ink); color: var(--paper); padding: .02em .16em .08em;
                 display: inline-block; margin-top: .12em; transform: skew(-4deg); }
   .hero p.lead { font-size: 20px; max-width: 34em; margin: 0 0 28px; }
@@ -61,11 +61,6 @@
   .device img { display: block; width: 100%; border-radius: 4px; background: #fff; }
   .device.back { left: 0; top: 70px; transform: rotate(-7deg); }
   .device.front { right: 0; top: 0; transform: rotate(4deg); }
-  .bubble { position: absolute; background: var(--paper); border: 4px solid var(--ink); border-radius: 50%;
-            padding: 18px 26px; font-weight: 800; box-shadow: 5px 5px 0 var(--ink); }
-  .bubble::after { content: ""; position: absolute; left: 30%; bottom: -22px; border: 12px solid transparent;
-                   border-top: 18px solid var(--ink); }
-  .hero .bubble { left: 2%; top: 4px; z-index: 2; transform: rotate(-6deg); }
   @media (max-width: 900px) {
     .hero .wrap { grid-template-columns: minmax(0, 1fr); }
     .devices { height: 480px; max-width: 520px; }
@@ -89,8 +84,7 @@
   .feature .num { position: absolute; top: -18px; left: 16px; }
   .feature h3 { margin: 10px 0 8px; font-size: 22px; }
   .feature p { margin: 0; color: #222; }
-  @media (max-width: 900px) { .features { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 600px) { .features { grid-template-columns: 1fr; } }
+  @media (max-width: 900px) { .features { grid-template-columns: 1fr; } }
 
   .show { display: grid; grid-template-columns: 500px 1fr; gap: 48px; align-items: center; margin: 0 0 100px; }
   .show:last-child { margin-bottom: 0; }
@@ -113,10 +107,6 @@
     .shot, .show.flip .shot { max-width: 400px; }
   }
 
-  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 26px 20px; }
-  .gallery figure { margin: 0; }
-  .gallery .device { position: relative; width: 100%; padding: 9px 9px 26px; border-radius: 14px; box-shadow: 6px 6px 0 var(--ink); }
-  .gallery figcaption { font-weight: 600; font-size: 15px; margin-top: 12px; }
 
   .install { display: grid; grid-template-columns: 1.1fr .9fr; gap: 32px; align-items: start; }
   .install .panel { padding: 28px 30px; }
@@ -129,7 +119,7 @@
   esp-web-install-button { display: inline-block; margin-top: 8px; }
   @media (max-width: 860px) { .install { grid-template-columns: 1fr; } }
 
-  .faq { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .faq { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .faq .panel { padding: 22px 24px; }
   .faq h3 { margin: 0 0 8px; font-size: 19px; }
   .faq p { margin: 0; }
@@ -168,7 +158,6 @@
       <p class="meta">Версия 0.2.3 · рядом CrossPoint 1.6.5-manga3 · бесплатно, без регистрации</p>
     </div>
     <div class="devices">
-      <div class="bubble">Читай!</div>
       <div class="device back"><img src="shots/page.png" alt="Страница манги на читалке"></div>
       <div class="device front"><img src="shots/home.png" alt="Главный экран PaperManga"></div>
     </div>
@@ -178,20 +167,16 @@
 <section id="features">
   <div class="wrap">
     <h2 class="section display">Всё нужное — на самой читалке</h2>
-    <p class="sub">Читалка сама ходит в интернет, скачивает страницы, нарезает их под экран 480×800 и раскладывает по полке.
-      Компьютер нужен только один раз — для установки.</p>
+    <p class="sub">Читалка сама скачивает главы и собирает их под экран. Компьютер нужен один раз — для установки.</p>
     <div class="features">
-      <div class="feature panel"><span class="stamp num">01</span><h3>Каталог</h3><p>MangaDex и MangaLib: популярное, новинки, поиск, главы. Со входом в MangaLib — и 18+.</p></div>
-      <div class="feature panel"><span class="stamp num">02</span><h3>Сборка под экран</h3><p>Прокрутка, целая страница, альбомный, четыре области. Длинные ленты манхв — без проблем.</p></div>
-      <div class="feature panel"><span class="stamp num">03</span><h3>Полка</h3><p>Обложки серий, счётчик новых глав, «Читаю» на главном экране — с той же страницы.</p></div>
-      <div class="feature panel"><span class="stamp num">04</span><h3>Быстрое листание</h3><p>Своя волновая форма экрана без мигания, четыре оттенка серого, предзагрузка страниц.</p></div>
-      <div class="feature panel"><span class="stamp num">05</span><h3>Wi‑Fi и браузер</h3><p>До восьми сетей. Адрес читалки в браузере телефона: сети, вход, загрузка своих глав.</p></div>
-      <div class="feature panel"><span class="stamp num">06</span><h3>Обновления</h3><p>«О системе» → «Проверить». PaperManga и CrossPoint обновляют друг друга по Wi‑Fi.</p></div>
+      <div class="feature panel"><span class="stamp num">01</span><h3>Сборка под экран</h3><p>Прокрутка, целая страница, альбомный, четыре области. Длинные ленты манхв — без проблем.</p></div>
+      <div class="feature panel"><span class="stamp num">02</span><h3>Без мигания</h3><p>Своя волновая форма экрана, четыре оттенка серого, следующая страница уже готова.</p></div>
+      <div class="feature panel"><span class="stamp num">03</span><h3>Обновления по Wi‑Fi</h3><p>До восьми сетей. Новая версия — из «О системе», без компьютера.</p></div>
     </div>
   </div>
 </section>
 
-<section class="alt">
+<section id="screens" class="alt">
   <div class="wrap">
     <div class="show">
       <div class="shot">
@@ -244,27 +229,6 @@
   </div>
 </section>
 
-<section id="screens">
-  <div class="wrap">
-    <h2 class="section display">Как это выглядит</h2>
-    <p class="sub">Снимки экрана один в один, как их показывает читалка: 480×800, четыре оттенка серого.
-      Главы на снимках — демонстрационные, нарисованные для этой страницы.</p>
-    <div class="gallery">
-      <figure><div class="device"><img src="shots/home.png" alt="Главный экран"></div><figcaption>Главный экран</figcaption></figure>
-      <figure><div class="device"><img src="shots/library.png" alt="Полка"></div><figcaption>Полка</figcaption></figure>
-      <figure><div class="device"><img src="shots/chapters.png" alt="Главы"></div><figcaption>Главы</figcaption></figure>
-      <figure><div class="device"><img src="shots/catalog.png" alt="Каталог"></div><figcaption>Каталог</figcaption></figure>
-      <figure><div class="device"><img src="shots/build.png" alt="Сборка глав"></div><figcaption>Сборка глав</figcaption></figure>
-      <figure><div class="device"><img src="shots/page.png" alt="Чтение"></div><figcaption>Чтение</figcaption></figure>
-      <figure><div class="device"><img src="shots/menu.png" alt="Меню чтения"></div><figcaption>Меню чтения</figcaption></figure>
-      <figure><div class="device"><img src="shots/end.png" alt="Конец главы"></div><figcaption>Конец главы</figcaption></figure>
-      <figure><div class="device"><img src="shots/delete.png" alt="Удаление"></div><figcaption>Удаление</figcaption></figure>
-      <figure><div class="device"><img src="shots/wifi.png" alt="Wi‑Fi"></div><figcaption>Wi‑Fi</figcaption></figure>
-      <figure><div class="device"><img src="shots/about.png" alt="О системе"></div><figcaption>О системе</figcaption></figure>
-    </div>
-  </div>
-</section>
-
 <section id="install" class="alt">
   <div class="wrap">
     <h2 class="section display">Установка за минуту</h2>
@@ -286,12 +250,9 @@
       <div class="panel warn">
         <span class="stamp">Прочитай перед установкой</span>
         <ul>
-          <li>Только <b>X4 Classic</b> (ESP32‑S3). Обычный X4 установщик не тронет.</li>
-          <li>Некоторые читалки с AliExpress продаются с закрытой прошивкой по USB. Если браузер не видит устройство —
-            не обходи блокировку чужими утилитами.</li>
-          <li>Пишутся только два слота приложений и выбор слота. Загрузчик, таблица разделов и заводская калибровка
-            экрана остаются, флеш не стирается.</li>
-          <li>Книги и настройки на карте остаются.</li>
+          <li>Только <b>X4 Classic</b> (ESP32‑S3).</li>
+          <li>Флеш не стирается: заводская калибровка экрана, книги и настройки остаются.</li>
+          <li>Если браузер не видит читалку, прошивка закрыта продавцом — не обходи это чужими утилитами.</li>
         </ul>
       </div>
     </div>
@@ -308,8 +269,6 @@
         <a href="https://crosspointreader.com/#flash-tools">crosspointreader.com</a>.</p></div>
       <div class="panel"><h3>Откуда манга?</h3><p>Из источников, которые подключаешь сам: MangaDex, MangaLib со своим входом.
         Мы ничего не храним и не раздаём; права — у авторов и издателей.</p></div>
-      <div class="panel"><h3>Как обновлять?</h3><p>«О системе» → «Проверить». Новая версия придёт по Wi‑Fi, компьютер
-        больше не нужен.</p></div>
     </div>
   </div>
 </section>
