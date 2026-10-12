@@ -4,6 +4,20 @@
 
 **Установить:** https://ikrasnodymov.github.io/papermanga/ (Chrome или Edge на компьютере, читалка по USB).
 
+## Как это выглядит
+
+Снимки экрана один в один, как их показывает читалка (480×800, четыре оттенка серого). Главы на снимках — демонстрационные.
+
+| Главный экран | Библиотека | Каталог |
+|:---:|:---:|:---:|
+| <img src="docs/shots/home.png" width="240"> | <img src="docs/shots/library.png" width="240"> | <img src="docs/shots/catalog.png" width="240"> |
+| **Чтение** | **Меню чтения** | **Конец главы** |
+| <img src="docs/shots/page.png" width="240"> | <img src="docs/shots/menu.png" width="240"> | <img src="docs/shots/end.png" width="240"> |
+| **Главы** | **Сборка глав** | **Удаление** |
+| <img src="docs/shots/chapters.png" width="240"> | <img src="docs/shots/build.png" width="240"> | <img src="docs/shots/delete.png" width="240"> |
+| **Wi‑Fi** | **О системе** | |
+| <img src="docs/shots/wifi.png" width="240"> | <img src="docs/shots/about.png" width="240"> | |
+
 ## Как это устроено
 
 - В читалке два слота приложений. CrossPoint (наш форк) в первом, PaperManga во втором.
