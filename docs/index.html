@@ -14,6 +14,12 @@
   esp-web-install-button button { font-size: 1.1em; }
   code { background: #eee; padding: 0 .3em; }
   li { margin: .3em 0; }
+  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 1.4em 1em; margin: 1em 0 2em; }
+  .gallery figure { margin: 0; }
+  .gallery img { width: 100%; display: block; border: 10px solid #222; border-bottom-width: 26px; border-radius: 12px;
+                 background: #fff; box-shadow: 5px 5px 0 #111; image-rendering: auto; }
+  .gallery figcaption { font-size: .9em; margin-top: .6em; line-height: 1.35; }
+  .gallery b { display: block; }
 </style>
 </head>
 <body>
@@ -22,7 +28,7 @@
 быстрое листание. Рядом остаётся CrossPoint — переключение из меню любой из двух прошивок.</p>
 
 <div class="box">
-  <p><strong>Версия 0.2.1</strong> · CrossPoint 1.6.5-manga3</p>
+  <p><strong>Версия 0.2.2</strong> · CrossPoint 1.6.5-manga3</p>
   <esp-web-install-button manifest="firmware/manifest.json">
     <button slot="activate">Установить на читалку</button>
     <span slot="unsupported">Нужен Chrome или Edge на компьютере: этот браузер не умеет работать с USB.</span>
@@ -45,6 +51,23 @@
       калибровку экрана (NVS) он не трогает, флеш не стирает.</li>
     <li>Книги и настройки на карте остаются. Прошлая прошивка в слоте CrossPoint заменяется нашим форком CrossPoint.</li>
   </ul>
+</div>
+
+<h2>Как это выглядит</h2>
+<p>Снимки экрана один в один, как их показывает читалка (480×800, четыре оттенка серого). Главы на снимках —
+демонстрационные, нарисованные для этой страницы.</p>
+<div class="gallery">
+  <figure><img src="shots/home.png" alt="Главный экран"><figcaption><b>Главный экран</b>Продолжить с той страницы, где остановился.</figcaption></figure>
+  <figure><img src="shots/catalog.png" alt="Каталог"><figcaption><b>Каталог</b>MangaDex и MangaLib прямо на читалке.</figcaption></figure>
+  <figure><img src="shots/build.png" alt="Сборка глав"><figcaption><b>Сборка глав</b>Режимы чтения, шаг прокрутки, тона.</figcaption></figure>
+  <figure><img src="shots/page.png" alt="Страница"><figcaption><b>Чтение</b>Часы и номер страницы — по желанию.</figcaption></figure>
+  <figure><img src="shots/menu.png" alt="Меню чтения"><figcaption><b>Меню чтения</b>Перемотка, главы, очистка экрана.</figcaption></figure>
+  <figure><img src="shots/end.png" alt="Конец главы"><figcaption><b>Конец главы</b>Следующая глава — одним нажатием.</figcaption></figure>
+  <figure><img src="shots/library.png" alt="Библиотека"><figcaption><b>Библиотека</b>Сколько глав и сколько новых, свободное место.</figcaption></figure>
+  <figure><img src="shots/chapters.png" alt="Главы"><figcaption><b>Главы</b>Прочитанные, новые, прогресс.</figcaption></figure>
+  <figure><img src="shots/delete.png" alt="Удаление"><figcaption><b>Удаление</b>Только прочитанные или всю папку.</figcaption></figure>
+  <figure><img src="shots/wifi.png" alt="Wi‑Fi"><figcaption><b>Wi‑Fi</b>Адрес читалки: настройки и вход с телефона.</figcaption></figure>
+  <figure><img src="shots/about.png" alt="О системе"><figcaption><b>О системе</b>Обновления по Wi‑Fi одной кнопкой.</figcaption></figure>
 </div>
 
 <h2>Что внутри</h2>
