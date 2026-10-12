@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PaperManga — установка на Xteink X4 Classic</title>
+<script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+<style>
+  body { font: 17px/1.5 -apple-system, "Segoe UI", sans-serif; max-width: 42em; margin: 2em auto; padding: 0 1em; color: #111; }
+  h1 { font-size: 2.2em; margin-bottom: .2em; border-bottom: 4px solid #111; display: inline-block; }
+  .tag { color: #555; margin-top: 0; }
+  .box { border: 3px solid #111; box-shadow: 6px 6px 0 #111; padding: 1em 1.2em; margin: 1.5em 0; }
+  .warn { border-color: #b00; box-shadow: 6px 6px 0 #b00; }
+  esp-web-install-button button { font-size: 1.1em; }
+  code { background: #eee; padding: 0 .3em; }
+  li { margin: .3em 0; }
+</style>
+</head>
+<body>
+<h1>PaperManga</h1>
+<p class="tag">Прошивка для Xteink X4 Classic: каталог манги прямо на читалке, MangaDex и MangaLib без компьютера,
+быстрое листание. Рядом остаётся CrossPoint — переключение из меню любой из двух прошивок.</p>
+
+<div class="box">
+  <p><strong>Версия 0.2.0</strong> · CrossPoint 1.6.5-manga3</p>
+  <esp-web-install-button manifest="firmware/manifest.json">
+    <button slot="activate">Установить на читалку</button>
+    <span slot="unsupported">Нужен Chrome или Edge на компьютере: этот браузер не умеет работать с USB.</span>
+    <span slot="not-allowed">Страница должна открываться по HTTPS.</span>
+  </esp-web-install-button>
+  <ol>
+    <li>Подключи читалку к компьютеру кабелем, который передаёт данные, и включи её.</li>
+    <li>Нажми «Установить на читалку» и выбери в списке устройство «USB JTAG/serial debug unit».</li>
+    <li>Подтверди установку. Через минуту читалка перезапустится в PaperManga.</li>
+  </ol>
+</div>
+
+<div class="box warn">
+  <p><strong>Прочитай перед установкой</strong></p>
+  <ul>
+    <li>Только <strong>X4 Classic</strong> (ESP32‑S3). Обычный X4 установщик не тронет.</li>
+    <li>Некоторые читалки из магазинов вроде AliExpress продаются с закрытой прошивкой по USB. Если браузер
+      не видит устройство, не пытайся обойти блокировку чужими утилитами: можно остаться без рабочей прошивки.</li>
+    <li>Установщик пишет два слота приложений и выбор слота. Загрузчик, таблицу разделов и заводскую
+      калибровку экрана (NVS) он не трогает, флеш не стирает.</li>
+    <li>Книги и настройки на карте остаются. Прошлая прошивка в слоте CrossPoint заменяется нашим форком CrossPoint.</li>
+  </ul>
+</div>
+
+<h2>Что внутри</h2>
+<ul>
+  <li><strong>Каталог на читалке.</strong> MangaDex и MangaLib: популярное, новинки, поиск, главы. Читалка сама
+    скачивает картинки и собирает главу, компьютер не нужен.</li>
+  <li><strong>Вход в MangaLib</strong> для 18+ и глав, скрытых без аккаунта: на странице читалки в браузере.</li>
+  <li><strong>Режимы чтения</strong> как в приложении на Mac: прокрутка, целая страница, альбомный, четыре области,
+    4 оттенка серого или ч/б.</li>
+  <li><strong>Несколько сетей Wi‑Fi</strong>: читалка подключается к той, что рядом.</li>
+  <li><strong>Обновления по Wi‑Fi</strong>: «О системе» → «Проверить». Прошивки обновляют друг друга.</li>
+</ul>
+
+<h2>Вернуть как было</h2>
+<p>Удерживай «Назад» при включении — загрузится CrossPoint. Стоковую прошивку можно поставить с
+<a href="https://crosspointreader.com/#flash-tools">crosspointreader.com</a>.</p>
+
+<p style="color:#666;margin-top:3em">CrossPoint — проект сообщества под лицензией MIT; наш форк добавляет пункт PaperManga
+в меню и безопасные обновления. Контент берётся из источников, которые ты сам подключаешь; мы ничего не раздаём.</p>
+</body>
+</html>
