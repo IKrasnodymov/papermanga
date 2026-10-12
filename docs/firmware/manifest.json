@@ -1,7 +1,7 @@
 {
   "name": "PaperManga + CrossPoint для Xteink X4 Classic",
   "version": "0.2.3",
-  "new_install_prompt_erase": false,
+  "new_install_prompt_erase": true,
   "builds": [
     {
       "chipFamily": "ESP32-S3",
