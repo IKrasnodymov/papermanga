@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PaperManga — манга на Xteink X4 Classic без компьютера</title>
-<meta name="description" content="Прошивка для Xteink X4 Classic: каталог MangaDex и MangaLib прямо на читалке, полка с обложками, режимы чтения, обновления по Wi‑Fi.">
+<meta name="description" content="PaperManga — бесплатная прошивка для Xteink X4 Classic: читалка сама находит мангу на MangaDex и MangaLib, скачивает главы и подгоняет их под экран.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -119,7 +119,7 @@
   esp-web-install-button { display: inline-block; margin-top: 8px; }
   @media (max-width: 860px) { .install { grid-template-columns: 1fr; } }
 
-  .faq { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .faq { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
   .faq .panel { padding: 22px 24px; }
   .faq h3 { margin: 0 0 8px; font-size: 19px; }
   .faq p { margin: 0; }
@@ -135,8 +135,8 @@
   <div class="wrap">
     <a class="logo display" href="#"><span class="kanji">漫</span>PaperManga</a>
     <nav class="links">
-      <a href="#features">Возможности</a>
-      <a href="#screens">Как выглядит</a>
+      <a href="#how">Как это работает</a>
+      <a href="#screens">Возможности</a>
       <a href="#install">Установка</a>
       <a href="#faq">Вопросы</a>
     </nav>
@@ -149,13 +149,13 @@
     <div>
       <span class="stamp">Прошивка для Xteink X4 Classic</span>
       <h1 class="display">Манга на e‑ink. <em>Без&nbsp;компьютера.</em></h1>
-      <p class="lead">Каталог MangaDex и MangaLib прямо на читалке. Нашёл тайтл — нажал — глава скачалась и собралась под экран.
-        Полка с обложками, режимы чтения, обновления по Wi‑Fi.</p>
+      <p class="lead">PaperManga сама находит мангу в интернете, скачивает главы и подгоняет страницы под экран читалки.
+        Компьютер нужен один раз — чтобы установить прошивку.</p>
       <div class="cta">
         <a class="btn" href="#install">Установить</a>
-        <a class="btn ghost" href="#screens">Посмотреть экраны</a>
+        <a class="btn ghost" href="#how">Как это работает</a>
       </div>
-      <p class="meta">Версия 0.2.3 · рядом CrossPoint 1.6.5-manga3 · бесплатно, без регистрации</p>
+      <p class="meta">Бесплатно · версия 0.2.3 · CrossPoint остаётся на читалке</p>
     </div>
     <div class="devices">
       <div class="device back"><img src="shots/page.png" alt="Страница манги на читалке"></div>
@@ -164,14 +164,17 @@
   </div>
 </div>
 
-<section id="features">
+<section id="how">
   <div class="wrap">
-    <h2 class="section display">Всё нужное — на самой читалке</h2>
-    <p class="sub">Читалка сама скачивает главы и собирает их под экран. Компьютер нужен один раз — для установки.</p>
+    <h2 class="section display">Три шага до первой главы</h2>
+    <p class="sub">Дальше всё происходит на самой читалке.</p>
     <div class="features">
-      <div class="feature panel"><span class="stamp num">01</span><h3>Сборка под экран</h3><p>Прокрутка, целая страница, альбомный, четыре области. Длинные ленты манхв — без проблем.</p></div>
-      <div class="feature panel"><span class="stamp num">02</span><h3>Без мигания</h3><p>Своя волновая форма экрана, четыре оттенка серого, следующая страница уже готова.</p></div>
-      <div class="feature panel"><span class="stamp num">03</span><h3>Обновления по Wi‑Fi</h3><p>До восьми сетей. Новая версия — из «О системе», без компьютера.</p></div>
+      <div class="feature panel"><span class="stamp num">01</span><h3>Установи</h3><p>Подключи читалку к компьютеру
+        и нажми кнопку в разделе <a href="#install">«Установка»</a>. Это займёт пару минут.</p></div>
+      <div class="feature panel"><span class="stamp num">02</span><h3>Подключи Wi‑Fi</h3><p>Открой «Wi‑Fi» на читалке.
+        Она создаст свою сеть: зайди в неё с телефона и введи пароль от домашнего Wi‑Fi. Сети из CrossPoint подхватятся сами.</p></div>
+      <div class="feature panel"><span class="stamp num">03</span><h3>Найди и читай</h3><p>Открой «Каталог», найди мангу
+        и выбери главу. Через минуту она появится на полке.</p></div>
     </div>
   </div>
 </section>
@@ -181,32 +184,32 @@
     <div class="show">
       <div class="shot">
         <div class="device"><img src="shots/catalog.png" alt="Каталог"></div>
-        <div class="device"><img src="shots/build.png" alt="Сборка глав"></div>
+        <div class="device"><img src="shots/build.png" alt="Настройки сборки глав"></div>
       </div>
       <div>
         <span class="stamp">Каталог</span>
-        <h3 class="display">Нашёл — нажал — читаешь</h3>
-        <p>Популярное, новинки и поиск — плитками, выдача — сеткой обложек. Глава скачивается и собирается
-          прямо на читалке: прогресс видно по страницам.</p>
+        <h3 class="display">Мангу ищешь прямо на читалке</h3>
+        <p>Популярное, новинки и поиск по названию. Выбираешь главу — читалка скачивает её и готовит страницы под экран.</p>
         <ul>
-          <li>MangaDex без регистрации, MangaLib — со своим входом.</li>
-          <li>«Скачать 5 следующих» — и можно уходить от Wi‑Fi.</li>
-          <li>Настройки сборки — как в приложении на Mac.</li>
+          <li>MangaDex — без регистрации.</li>
+          <li>MangaLib — со своим аккаунтом, в том числе 18+.</li>
+          <li>Можно скачать сразу несколько глав и читать без интернета.</li>
+          <li>Длинные ленты манхвы делятся на экраны, развороты — на половины.</li>
         </ul>
       </div>
     </div>
     <div class="show flip">
       <div class="shot">
         <div class="device"><img src="shots/library.png" alt="Полка"></div>
-        <div class="device"><img src="shots/chapters.png" alt="Главы"></div>
+        <div class="device"><img src="shots/chapters.png" alt="Главы серии"></div>
       </div>
       <div>
         <span class="stamp">Библиотека</span>
-        <h3 class="display">Полка, а не список файлов</h3>
-        <p>Каждая серия — обложка с плашкой новых глав. Внутри — главы с прогрессом и отметками «прочитано».</p>
+        <h3 class="display">Все серии на одной полке</h3>
+        <p>У каждой серии своя обложка. Новые и прочитанные главы отмечены, а начатая открывается с того же места.</p>
         <ul>
-          <li>Свободное место на карте — внизу полки.</li>
-          <li>Удаление: только прочитанные или всю папку.</li>
+          <li>Внизу видно, сколько места осталось на карте.</li>
+          <li>Удалить можно только прочитанные главы или всю серию.</li>
         </ul>
       </div>
     </div>
@@ -217,58 +220,60 @@
       </div>
       <div>
         <span class="stamp">Чтение</span>
-        <h3 class="display">Только страница</h3>
-        <p>Ничего лишнего поверх манги. По желанию — часы и номер страницы в углу. Меню — одной кнопкой:
-          перемотка, главы, очистка экрана.</p>
+        <h3 class="display">На экране — только манга</h3>
+        <p>Страницы листаются быстро и без мигания. Часы и номер страницы в углу — если хочешь.</p>
         <ul>
-          <li>В конце главы — следующая одним нажатием.</li>
-          <li>История чтения — даже удалённых глав.</li>
+          <li>Меню по одной кнопке: перемотка, список глав, очистка экрана.</li>
+          <li>В конце главы следующая открывается одним нажатием.</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<section id="install" class="alt">
+<section id="install">
   <div class="wrap">
-    <h2 class="section display">Установка за минуту</h2>
-    <p class="sub">Нужен компьютер с Chrome или Edge и кабель, который передаёт данные. Ничего скачивать не надо.</p>
+    <h2 class="section display">Установка</h2>
+    <p class="sub">Понадобится компьютер с браузером Chrome или Edge и USB‑кабель, который передаёт данные, а не только заряжает.</p>
     <div class="install">
       <div class="panel">
         <span class="stamp">Версия 0.2.3</span>
         <ol>
           <li>Подключи читалку к компьютеру и включи её.</li>
-          <li>Нажми кнопку и выбери в списке «USB JTAG/serial debug unit».</li>
-          <li>Подтверди установку. Через минуту читалка перезапустится в PaperManga.</li>
+          <li>Нажми кнопку ниже и выбери в списке «USB JTAG/serial debug unit» — так называется читалка.</li>
+          <li>Подтверди установку. Примерно через минуту читалка перезагрузится уже с PaperManga.</li>
         </ol>
         <esp-web-install-button manifest="firmware/manifest.json">
           <button slot="activate" class="btn">Установить на читалку</button>
-          <span slot="unsupported"><b>Нужен Chrome или Edge на компьютере:</b> этот браузер не умеет работать с USB.</span>
+          <span slot="unsupported"><b>Открой страницу в Chrome или Edge на компьютере:</b> этот браузер не умеет работать с USB.</span>
           <span slot="not-allowed">Страница должна открываться по HTTPS.</span>
         </esp-web-install-button>
       </div>
       <div class="panel warn">
-        <span class="stamp">Прочитай перед установкой</span>
+        <span class="stamp">Перед установкой</span>
         <ul>
-          <li>Только <b>X4 Classic</b> (ESP32‑S3).</li>
-          <li>Флеш не стирается: заводская калибровка экрана, книги и настройки остаются.</li>
-          <li>Если браузер не видит читалку, прошивка закрыта продавцом — не обходи это чужими утилитами.</li>
+          <li>Подходит только для <b>X4 Classic</b>. На обычную X4 установщик ничего не запишет.</li>
+          <li>Книги, настройки и заводская калибровка экрана сохранятся.</li>
+          <li>Если браузер не видит читалку, возможно, продавец закрыл прошивку. Не обходи это сторонними программами.</li>
+          <li>Вернуть заводскую прошивку можно на <a href="https://crosspointreader.com/#flash-tools">crosspointreader.com</a>.</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<section id="faq">
+<section id="faq" class="alt">
   <div class="wrap">
     <h2 class="section display">Вопросы</h2>
     <div class="faq">
-      <div class="panel"><h3>А CrossPoint?</h3><p>Остаётся рядом, это наш форк. Переключение — пунктом меню в любой из прошивок
-        или удержанием «Назад» при включении.</p></div>
-      <div class="panel"><h3>Как вернуть всё как было?</h3><p>Стоковую прошивку можно поставить с
-        <a href="https://crosspointreader.com/#flash-tools">crosspointreader.com</a>.</p></div>
-      <div class="panel"><h3>Откуда манга?</h3><p>Из источников, которые подключаешь сам: MangaDex, MangaLib со своим входом.
-        Мы ничего не храним и не раздаём; права — у авторов и издателей.</p></div>
+      <div class="panel"><h3>Куда денется CrossPoint?</h3><p>Никуда: он остаётся на читалке рядом с PaperManga.
+        Переключиться можно из меню любой из них или удерживая «Назад» при включении.</p></div>
+      <div class="panel"><h3>Как войти в MangaLib?</h3><p>Подключи читалку к Wi‑Fi и открой «Wi‑Fi» на главном экране.
+        Там будет адрес — открой его в браузере телефона и войди в свой аккаунт.</p></div>
+      <div class="panel"><h3>Как обновить прошивку?</h3><p>Открой «Инфо» и нажми «Проверить». Новая версия скачается по Wi‑Fi,
+        компьютер не нужен.</p></div>
+      <div class="panel"><h3>Откуда берётся манга?</h3><p>Из сервисов, которые ты подключаешь сам: MangaDex и MangaLib.
+        PaperManga ничего не хранит и не распространяет. Права на мангу принадлежат авторам и издателям.</p></div>
     </div>
   </div>
 </section>
