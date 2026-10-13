@@ -10,7 +10,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
 <style>
-  :root { --ink: #111; --paper: #fff; --tone: #d9d9d9; --accent: #d32f2f; }
+  :root { --ink: #111; --paper: #fff; --tone: #d9d9d9; --accent: #d32f2f;
+          --shade: radial-gradient(circle, #555 1.2px, transparent 1.5px) 0 0 / 4px 4px; }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body { margin: 0; font: 17px/1.55 Inter, -apple-system, "Segoe UI", sans-serif; color: var(--ink); background: var(--paper); }
@@ -32,7 +33,16 @@
   @media (max-width: 760px) { nav.links { display: none; } }
 
   /* Comic panels */
-  .panel { background: var(--paper); border: 4px solid var(--ink); box-shadow: 8px 8px 0 var(--ink); }
+  /* Shadows are gray screentone: an offset dotted box, clipped to the L-shape that peeks out of the element.
+     --sh is the offset, --bw the element's border width. */
+  .panel, .btn, .device-toggle, .device-picker-panel { position: relative; isolation: isolate; }
+  .panel::after, .btn::after, .device-toggle::after, .device-picker-panel::after {
+    content: ""; position: absolute; z-index: -1; pointer-events: none; background: var(--shade);
+    top: calc(var(--sh) - var(--bw)); left: calc(var(--sh) - var(--bw));
+    right: calc(-1 * var(--sh) - var(--bw)); bottom: calc(-1 * var(--sh) - var(--bw));
+    clip-path: polygon(calc(100% - var(--sh)) 0, 100% 0, 100% 100%, 0 100%, 0 calc(100% - var(--sh)),
+                       calc(100% - var(--sh)) calc(100% - var(--sh))); }
+  .panel { background: var(--paper); border: 4px solid var(--ink); --sh: 8px; --bw: 4px; }
   .tone { background-image: radial-gradient(var(--ink) 1.1px, transparent 1.3px); background-size: 9px 9px; }
   .speed { background: repeating-conic-gradient(from 0deg at 72% 46%, var(--ink) 0deg .55deg, transparent .55deg 5deg); }
   .stamp { display: inline-block; background: var(--ink); color: var(--paper); font-weight: 800; font-size: 13px;
@@ -50,14 +60,18 @@
   .hero p.lead { font-size: 20px; max-width: 34em; margin: 0 0 28px; }
   .cta { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
   .btn { display: inline-block; font: 800 18px Inter, sans-serif; text-decoration: none; cursor: pointer;
-         padding: 16px 26px; border: 4px solid var(--ink); box-shadow: 6px 6px 0 var(--ink); background: var(--ink);
-         color: var(--paper); transition: transform .08s, box-shadow .08s; }
-  .btn:hover { transform: translate(2px, 2px); box-shadow: 4px 4px 0 var(--ink); }
+         padding: 16px 26px; border: 4px solid var(--ink); background: var(--ink); --sh: 6px; --bw: 4px;
+         color: var(--paper); transition: transform .08s; }
+  .btn:hover { transform: translate(2px, 2px); --sh: 4px; }
   .btn.ghost { background: var(--paper); color: var(--ink); }
   .meta { font-size: 14px; color: #444; margin-top: 18px; }
   .devices { position: relative; height: 560px; }
-  .device { position: absolute; width: 270px; background: #222; border-radius: 20px; padding: 14px 14px 40px;
-            box-shadow: 10px 10px 0 var(--ink); }
+  .device { position: absolute; width: 270px; border-radius: 20px; padding: 14px 14px 40px;
+            background: none; isolation: isolate; }
+  /* The rounded body is drawn by ::before so the dotted ::after can sit fully beneath it. */
+  .device::before, .device::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; }
+  .device::before { z-index: -1; background: #222; }
+  .device::after { z-index: -2; background: var(--shade); transform: translate(10px, 10px); }
   .device img { display: block; width: 100%; border-radius: 4px; background: #fff; }
   .device.back { left: 0; top: 70px; transform: rotate(-7deg); }
   .device.front { right: 0; top: 0; transform: rotate(4deg); }
@@ -118,7 +132,7 @@
   .install .panel { padding: 28px 30px; min-width:0; }
   .install ol { padding-left: 1.3em; margin: 18px 0 0; }
   .install li { margin: 8px 0; }
-  .warn { border-color: var(--accent); box-shadow: 8px 8px 0 var(--accent); }
+  .warn { border-color: var(--accent); }
   .warn .stamp { background: var(--accent); }
   .warn ul { padding-left: 1.2em; margin: 14px 0 0; }
   .warn li { margin: 8px 0; }
@@ -126,7 +140,7 @@
   esp-web-install-button[hidden] { display:none; }
   .device-picker { margin:10px 0 20px; min-width:0; }
   .device-toggle { display:flex; align-items:center; gap:14px; width:100%; padding:14px 16px; text-align:left;
-    font:inherit; color:var(--ink); background:var(--paper); border:3px solid var(--ink); box-shadow:4px 4px 0 var(--ink); cursor:pointer; }
+    font:inherit; color:var(--ink); background:var(--paper); border:3px solid var(--ink); --sh:4px; --bw:3px; cursor:pointer; }
   .device-toggle:disabled { cursor:wait; opacity:.65; }
   .device-current { display:flex; flex:1; flex-direction:column; gap:8px; min-width:0; }
   .device-name { font-size:16px; font-weight:800; line-height:1.4; overflow-wrap:anywhere; }
@@ -136,7 +150,7 @@
   .device-badge.tested { border-color:#96bba5; background:#edf6ef; color:#286443; }
   .device-chevron { flex-shrink:0; width:18px; height:18px; transition:transform .15s; }
   .device-toggle[aria-expanded="true"] .device-chevron { transform:rotate(180deg); }
-  .device-picker-panel { margin-top:12px; padding:12px; border:3px solid var(--ink); background:white; box-shadow:4px 4px 0 var(--ink); }
+  .device-picker-panel { margin-top:12px; padding:12px; border:3px solid var(--ink); background:white; --sh:4px; --bw:3px; }
   .device-picker-panel[hidden] { display:none; }
   .device-search { display:block; width:100%; min-width:0; padding:11px 12px; border:2px solid var(--ink);
     border-radius:0; background:#f5f5f5; color:var(--ink); font:400 16px Inter,sans-serif; }
