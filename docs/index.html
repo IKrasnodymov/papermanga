@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PaperManga — прошивки для читалок ESP32</title>
-<meta name="description" content="PaperManga: манга на читалках ESP32. Выбор модели, статус проверки и установка прошивки прямо из браузера.">
+<title>PaperManga — ESP32, Kobo, PocketBook и Android</title>
+<meta name="description" content="PaperManga: прошивки ESP32 и приложения для Kobo, PocketBook и Android. Статусы проверки, установка по USB и загрузка приложений.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -146,6 +146,7 @@
       <a href="#how">Как это работает</a>
       <a href="#screens">Возможности</a>
       <a href="#install">Установка</a>
+      <a href="#applications">Приложения</a>
       <a href="#faq">Вопросы</a>
     </nav>
   </div>
@@ -278,6 +279,33 @@
   </div>
 </section>
 
+<section id="applications">
+  <div class="wrap">
+    <span class="stamp">Приложения 0.4.0 · экспериментальные</span>
+    <h2 class="section display">Kobo, PocketBook и Android</h2>
+    <p class="sub">Общее ядро PaperManga: каталог, библиотека, история и чтение XTC / XTCH под размер экрана.</p>
+    <div class="validation"><strong>На физических устройствах не проверено — для всех трёх приложений.</strong>
+      Сборки и программные тесты прошли. Android запущен в эмуляторе. Работа E Ink, касаний, сна и батареи на конкретных моделях ещё не подтверждена.</div>
+    <div class="features app-downloads">
+      <article class="panel feature"><h3>Kobo</h3><p>Сенсорные Kobo Linux, ARM32. Запуск через установленный NickelMenu.</p>
+        <p><b>На устройстве не проверено.</b></p>
+        <a class="btn" href="https://github.com/IKrasnodymov/papermanga/releases/download/v0.4.0/papermanga-kobo-0.4.0.zip">Скачать ZIP</a>
+        <p class="meta">Распаковать в корень накопителя, включая скрытую папку .adds.</p></article>
+      <article class="panel feature"><h3>PocketBook</h3><p>PocketBook OS / InkView, ARM32 Linux. Приложение в штатном меню.</p>
+        <p><b>На устройстве не проверено.</b></p>
+        <a class="btn" href="https://github.com/IKrasnodymov/papermanga/releases/download/v0.4.0/papermanga-pocketbook-0.4.0.zip">Скачать ZIP</a>
+        <p class="meta">Распаковать в корень накопителя. Для PocketBook на Android нужен APK.</p></article>
+      <article class="panel feature"><h3>Android</h3><p>Android 7.0 и новее: ARM64, ARM32 и x86_64. Импорт через системный выбор файлов.</p>
+        <p><b>На устройстве не проверено.</b></p>
+        <a class="btn" href="https://github.com/IKrasnodymov/papermanga/releases/download/v0.4.0/papermanga-android-0.4.0.apk">Скачать APK</a>
+        <p class="meta">Открыть APK на устройстве и разрешить установку. E Ink обновляет система ридера.</p></article>
+    </div>
+    <p class="meta"><a href="https://github.com/IKrasnodymov/papermanga/blob/main/docs/APPLICATIONS.md">Установка, совместимость и удаление</a> ·
+      <a href="https://github.com/IKrasnodymov/papermanga/releases/download/v0.4.0/apps.json">Статусы и SHA-256</a> ·
+      <a href="https://github.com/IKrasnodymov/papermanga/releases/tag/v0.4.0">Выпуск и исходники библиотек</a></p>
+  </div>
+</section>
+
 <section id="faq" class="alt">
   <div class="wrap">
     <h2 class="section display">Вопросы</h2>
@@ -299,7 +327,7 @@
 
 <footer>
   <div class="wrap">
-    <div><b class="kanji-inline">漫</b> <b class="display">PaperManga</b> · версия 0.3.0</div>
+    <div><b class="kanji-inline">漫</b> <b class="display">PaperManga</b> · прошивки 0.3.0 · приложения 0.4.0</div>
     <div><a href="https://github.com/IKrasnodymov/papermanga">GitHub</a> · <a href="licenses/THIRD_PARTY.md">Библиотеки и лицензии</a></div>
   </div>
 </footer>
