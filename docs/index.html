@@ -84,6 +84,12 @@
   .feature .num { position: absolute; top: -18px; left: 16px; }
   .feature h3 { margin: 10px 0 8px; font-size: 22px; }
   .feature p { margin: 0; color: #222; }
+  .app-downloads .feature { display:flex; flex-direction:column; align-items:flex-start; gap:16px; }
+  .app-downloads h3 { margin:0; }
+  .app-downloads .app-status { font-size:13px; font-weight:700; line-height:1.4; padding:6px 9px;
+    border:2px solid var(--accent); background:#fff4f1; color:#a52a2a; }
+  .app-downloads .btn { margin-top:auto; margin-bottom:6px; max-width:calc(100% - 6px); text-align:center; }
+  .app-downloads .meta { font-size:14px; line-height:1.6; color:#444; }
   @media (max-width: 900px) { .features { grid-template-columns: 1fr; } }
 
   .show { display: grid; grid-template-columns: 500px 1fr; gap: 48px; align-items: center; margin: 0 0 100px; }
@@ -109,7 +115,7 @@
 
 
   .install { display: grid; grid-template-columns: 1.1fr .9fr; gap: 32px; align-items: start; }
-  .install .panel { padding: 28px 30px; }
+  .install .panel { padding: 28px 30px; min-width:0; }
   .install ol { padding-left: 1.3em; margin: 18px 0 0; }
   .install li { margin: 8px 0; }
   .warn { border-color: var(--accent); box-shadow: 8px 8px 0 var(--accent); }
@@ -118,14 +124,49 @@
   .warn li { margin: 8px 0; }
   esp-web-install-button { display: inline-block; margin-top: 8px; }
   esp-web-install-button[hidden] { display:none; }
-  .device-choice { display:block; width:100%; min-width:0; font:600 16px Inter,sans-serif; padding:12px; margin:10px 0 18px; border:3px solid var(--ink); background:white; }
-  .validation { padding:14px 16px; border:3px solid var(--accent); background:#fff4f1; margin:14px 0; }
+  .device-picker { margin:10px 0 20px; min-width:0; }
+  .device-toggle { display:flex; align-items:center; gap:14px; width:100%; padding:14px 16px; text-align:left;
+    font:inherit; color:var(--ink); background:var(--paper); border:3px solid var(--ink); box-shadow:4px 4px 0 var(--ink); cursor:pointer; }
+  .device-toggle:disabled { cursor:wait; opacity:.65; }
+  .device-current { display:flex; flex:1; flex-direction:column; gap:8px; min-width:0; }
+  .device-name { font-size:16px; font-weight:800; line-height:1.4; overflow-wrap:anywhere; }
+  .device-meta { display:flex; align-items:center; flex-wrap:wrap; gap:6px 10px; font-size:12px; line-height:1.5; }
+  .device-version { color:#555; }
+  .device-badge { display:inline-block; max-width:100%; padding:2px 6px; border:1px solid #caa29a; background:#fff4f1; color:#8a2c25; }
+  .device-badge.tested { border-color:#96bba5; background:#edf6ef; color:#286443; }
+  .device-chevron { flex-shrink:0; width:18px; height:18px; transition:transform .15s; }
+  .device-toggle[aria-expanded="true"] .device-chevron { transform:rotate(180deg); }
+  .device-picker-panel { margin-top:12px; padding:12px; border:3px solid var(--ink); background:white; box-shadow:4px 4px 0 var(--ink); }
+  .device-picker-panel[hidden] { display:none; }
+  .device-search { display:block; width:100%; min-width:0; padding:11px 12px; border:2px solid var(--ink);
+    border-radius:0; background:#f5f5f5; color:var(--ink); font:400 16px Inter,sans-serif; }
+  .device-results { margin:10px 0 8px; font-size:12px; color:#555; }
+  .device-options { max-height:min(380px, 45vh); overflow-y:auto; overscroll-behavior:contain; scrollbar-gutter:stable; }
+  .device-group + .device-group { margin-top:16px; }
+  .device-group-title { margin:0 0 6px; padding:4px 6px; font-size:11px; font-weight:800; letter-spacing:.07em; text-transform:uppercase; color:#555; }
+  .device-option { display:block; width:100%; padding:11px 10px; text-align:left; font:inherit; color:var(--ink);
+    background:white; border:2px solid transparent; cursor:pointer; }
+  .device-option + .device-option { margin-top:4px; }
+  .device-option:hover { background:#f3f3f3; border-color:#ccc; }
+  .device-option[aria-selected="true"] { background:var(--ink); color:white; border-color:var(--ink); }
+  .device-option .device-name { display:block; font-size:14px; }
+  .device-option .device-meta { margin-top:6px; font-size:11px; }
+  .device-option[aria-selected="true"] .device-version { color:#ddd; }
+  .device-toggle:focus-visible, .device-search:focus-visible, .device-option:focus-visible { outline:3px solid var(--accent); outline-offset:2px; }
+  .device-option:focus-visible { outline-offset:-3px; }
+  .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+  .validation { padding:14px 16px; border:3px solid var(--accent); background:#fff4f1; margin:14px 0; overflow-wrap:anywhere; }
   .validation.tested { border-color:#286443; background:#edf6ef; }
   .validation strong { display:block; margin-bottom:5px; }
   .model-confirm { display:flex; gap:10px; align-items:flex-start; margin:18px 0; font-size:15px; }
   .model-confirm input { width:20px; height:20px; flex-shrink:0; }
   .device-download { font-size:15px; }
   @media (max-width: 860px) { .install { grid-template-columns: 1fr; } }
+  @media (max-width: 520px) {
+    .install .panel { padding:22px 20px; }
+    .device-toggle { padding:12px; }
+    .device-picker-panel { padding:10px; }
+  }
 
   .faq { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
   .faq .panel { padding: 22px 24px; }
@@ -246,8 +287,22 @@
     <p class="sub">Понадобится компьютер с браузером Chrome или Edge и USB‑кабель, который передаёт данные, а не только заряжает.</p>
     <div class="install">
       <div class="panel">
-        <label for="firmware-device"><b>Выбери точную модель</b></label>
-        <select id="firmware-device" class="device-choice" disabled aria-describedby="device-validation"><option>Загружаю список прошивок…</option></select>
+        <b id="device-picker-label">Выбери точную модель</b>
+        <div class="device-picker" id="device-picker">
+          <button id="device-toggle" class="device-toggle" type="button" disabled aria-expanded="false"
+            aria-haspopup="listbox" aria-controls="device-picker-panel" aria-labelledby="device-picker-label device-current-name" aria-describedby="device-validation">
+            <span class="device-current"><span id="device-current-name" class="device-name">Загружаю список прошивок…</span>
+              <span id="device-current-meta" class="device-meta"></span></span>
+            <svg class="device-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m5 9 7 7 7-7"/></svg>
+          </button>
+          <div id="device-picker-panel" class="device-picker-panel" hidden>
+            <label for="device-search" class="sr-only">Найти модель читалки</label>
+            <input id="device-search" class="device-search" type="search" placeholder="Найти модель…" autocomplete="off" spellcheck="false" aria-controls="device-options">
+            <p id="device-results" class="device-results" role="status"></p>
+            <div id="device-options" class="device-options" role="listbox" aria-label="Модели читалок"></div>
+          </div>
+          <select id="firmware-device" hidden disabled aria-hidden="true" tabindex="-1"><option>Загружаю список прошивок…</option></select>
+        </div>
         <div id="device-validation" class="validation" role="status"><strong>Проверяю доступные сборки</strong></div>
         <p id="device-features" class="meta"></p>
         <label class="model-confirm"><input type="checkbox" id="confirm-model" disabled><span>Выбранная модель и аппаратная версия совпадают с моей читалкой. Я прочитал статус проверки.</span></label>
@@ -288,15 +343,15 @@
       Сборки и программные тесты прошли. Android запущен в эмуляторе. Работа E Ink, касаний, сна и батареи на конкретных моделях ещё не подтверждена.</div>
     <div class="features app-downloads">
       <article class="panel feature"><h3>Kobo</h3><p>Сенсорные Kobo Linux, ARM32. Запуск через установленный NickelMenu.</p>
-        <p><b>На устройстве не проверено.</b></p>
+        <p class="app-status">На устройстве не проверено</p>
         <a class="btn" href="https://github.com/IKrasnodymov/papermanga/releases/download/v0.4.0/papermanga-kobo-0.4.0.zip">Скачать ZIP</a>
         <p class="meta">Распаковать в корень накопителя, включая скрытую папку .adds.</p></article>
       <article class="panel feature"><h3>PocketBook</h3><p>PocketBook OS / InkView, ARM32 Linux. Приложение в штатном меню.</p>
-        <p><b>На устройстве не проверено.</b></p>
+        <p class="app-status">На устройстве не проверено</p>
         <a class="btn" href="https://github.com/IKrasnodymov/papermanga/releases/download/v0.4.0/papermanga-pocketbook-0.4.0.zip">Скачать ZIP</a>
         <p class="meta">Распаковать в корень накопителя. Для PocketBook на Android нужен APK.</p></article>
       <article class="panel feature"><h3>Android</h3><p>Android 7.0 и новее: ARM64, ARM32 и x86_64. Импорт через системный выбор файлов.</p>
-        <p><b>На устройстве не проверено.</b></p>
+        <p class="app-status">На устройстве не проверено</p>
         <a class="btn" href="https://github.com/IKrasnodymov/papermanga/releases/download/v0.4.0/papermanga-android-0.4.0.apk">Скачать APK</a>
         <p class="meta">Открыть APK на устройстве и разрешить установку. E Ink обновляет система ридера.</p></article>
     </div>
@@ -332,6 +387,6 @@
   </div>
 </footer>
 
-<script src="devices.js" defer></script>
+<script src="devices.js?v=20261013" defer></script>
 </body>
 </html>

@@ -1,11 +1,95 @@
 (() => {
   const select = document.getElementById('firmware-device');
+  const picker = document.getElementById('device-picker');
+  const toggle = document.getElementById('device-toggle');
+  const panel = document.getElementById('device-picker-panel');
+  const search = document.getElementById('device-search');
+  const options = document.getElementById('device-options');
+  const results = document.getElementById('device-results');
+  const currentName = document.getElementById('device-current-name');
+  const currentMeta = document.getElementById('device-current-meta');
   const status = document.getElementById('device-validation');
   const installer = document.getElementById('firmware-installer');
   const confirm = document.getElementById('confirm-model');
   const activate = document.getElementById('install-firmware');
   const download = document.getElementById('firmware-download');
   let devices = [];
+
+  function manufacturer(device) {
+    if (device.name.startsWith('Xteink')) return 'Xteink';
+    if (/^M5(Stack|Paper)/.test(device.name)) return 'M5Stack';
+    return 'Другие производители';
+  }
+
+  function displayName(device) {
+    return device.name.replace(' · экспериментальная 0.3', ' · экспериментальная');
+  }
+
+  function metadata(device) {
+    const version = document.createElement('span');
+    version.className = 'device-version';
+    version.textContent = `${device.version} · ${device.panel[1]}×${device.panel[0]}`;
+    const badge = document.createElement('span');
+    const tested = device.hardware_tested === true;
+    badge.className = 'device-badge' + (tested ? ' tested' : '');
+    badge.textContent = tested ? 'Модель проверена' : 'На устройстве не проверено';
+    return [version, badge];
+  }
+
+  function closePicker(focus = false) {
+    panel.hidden = true;
+    toggle.setAttribute('aria-expanded', 'false');
+    if (focus) toggle.focus();
+  }
+
+  function renderOptions() {
+    const terms = search.value.trim().toLocaleLowerCase('ru').split(/\s+/).filter(Boolean);
+    const matches = devices.filter(device => {
+      const text = `${device.name} ${device.id} ${manufacturer(device)} ${device.chipFamily} ${device.version}`.toLocaleLowerCase('ru');
+      return terms.every(term => text.includes(term));
+    });
+    options.replaceChildren();
+    results.textContent = matches.length ? `Моделей в списке: ${matches.length}` : 'Ничего не найдено. Попробуй другое название.';
+    const groups = new Map();
+    for (const device of matches) {
+      const name = manufacturer(device);
+      if (!groups.has(name)) groups.set(name, []);
+      groups.get(name).push(device);
+    }
+    for (const [name, group] of groups) {
+      const section = document.createElement('div');
+      section.className = 'device-group';
+      section.setAttribute('role', 'group');
+      section.setAttribute('aria-label', name);
+      const title = document.createElement('p');
+      title.className = 'device-group-title';
+      title.textContent = name;
+      title.setAttribute('aria-hidden', 'true');
+      section.append(title);
+      for (const device of group) {
+        const option = document.createElement('button');
+        option.type = 'button';
+        option.className = 'device-option';
+        option.dataset.device = device.id;
+        option.setAttribute('role', 'option');
+        option.setAttribute('aria-selected', String(device.id === select.value));
+        const label = document.createElement('span');
+        label.className = 'device-name';
+        label.textContent = displayName(device);
+        const meta = document.createElement('span');
+        meta.className = 'device-meta';
+        meta.append(...metadata(device));
+        option.append(label, meta);
+        option.addEventListener('click', () => {
+          select.value = device.id;
+          choose();
+          closePicker(true);
+        });
+        section.append(option);
+      }
+      options.append(section);
+    }
+  }
 
   function choose() {
     const device = devices.find(item => item.id === select.value);
@@ -14,15 +98,18 @@
     confirm.disabled = true;
     installer.hidden = true;
     download.hidden = true;
-    if (!device) return;
+    if (!device) { unavailable(); return; }
+    currentName.textContent = displayName(device);
+    currentMeta.replaceChildren(...metadata(device));
     status.replaceChildren();
-    status.classList.toggle('tested', device.hardware_tested === true);
+    const tested = device.hardware_tested === true;
+    status.classList.toggle('tested', tested);
     const title = document.createElement('strong');
-    title.textContent = device.hardware_tested ? 'Проверено на нашем X4 Classic с UC8279' : 'На устройстве не проверено';
+    title.textContent = tested ? 'Проверено на нашем X4 Classic с UC8279' : 'На устройстве не проверено';
     const detail = document.createElement('p');
-    detail.textContent = device.hardware_tested
+    detail.textContent = tested
       ? `Проверена работа модели с PaperManga ${device.tested_version}. Здесь доступна сборка ${device.version}. ${device.notes}`
-      : `Сборка ${device.version} прошла компиляцию. Физическая проверка экрана, ввода, сна и батареи не проводилась. ${device.notes}`;
+      : `Сборка ${device.version} прошла компиляцию. Физическая проверка экрана, ввода, сна и батареи не проводилась. ${device.notes.replace(/^На устройстве не проверено\.\s*/, '')}`;
     status.append(title, detail);
     document.getElementById('device-features').textContent = `${device.panel[1]}×${device.panel[0]} · ${device.lite ? 'ч/б XTC, подготовка на компьютере' : 'XTC и XTCH'} · ${device.usb ? 'Wi‑Fi и USB-диск' : 'Wi‑Fi и карта памяти'}`;
     installer.setAttribute('manifest', new URL(device.manifest, location.href).href);
@@ -33,9 +120,58 @@
     const url = new URL(location.href);
     url.searchParams.set('device', device.id);
     history.replaceState(null, '', url);
+    renderOptions();
   }
+
+  function unavailable() {
+    closePicker();
+    toggle.disabled = true;
+    select.disabled = true;
+    confirm.checked = false;
+    confirm.disabled = true;
+    activate.disabled = true;
+    installer.hidden = true;
+    download.hidden = true;
+    currentName.textContent = 'Выбор модели недоступен';
+    currentMeta.replaceChildren();
+    status.classList.remove('tested');
+    status.textContent = 'Список прошивок или выбранная модель недоступны. Установка отключена; проверь адрес страницы и обнови её.';
+  }
+
+  toggle.addEventListener('click', () => {
+    if (!panel.hidden) { closePicker(); return; }
+    search.value = '';
+    renderOptions();
+    panel.hidden = false;
+    toggle.setAttribute('aria-expanded', 'true');
+    options.scrollTop = 0;
+    search.focus();
+  });
+  search.addEventListener('input', renderOptions);
   select.addEventListener('change', choose);
-  confirm.addEventListener('change', () => { activate.disabled = !confirm.checked; });
+  confirm.addEventListener('change', () => { activate.disabled = confirm.disabled || !confirm.checked; });
+  picker.addEventListener('keydown', event => {
+    if (panel.hidden) return;
+    if (event.key === 'Escape') { event.preventDefault(); closePicker(true); return; }
+    const items = [...options.querySelectorAll('[role="option"]')];
+    if (!items.length) return;
+    const index = items.indexOf(document.activeElement);
+    let next;
+    if (event.key === 'ArrowDown') next = (index + 1) % items.length;
+    else if (event.key === 'ArrowUp') next = index <= 0 ? items.length - 1 : index - 1;
+    else if (index >= 0 && event.key === 'Home') next = 0;
+    else if (index >= 0 && event.key === 'End') next = items.length - 1;
+    else return;
+    event.preventDefault();
+    items[next].focus();
+  });
+  picker.addEventListener('focusout', event => {
+    if (event.relatedTarget && !picker.contains(event.relatedTarget)) closePicker();
+  });
+  document.addEventListener('pointerdown', event => {
+    if (!picker.contains(event.target)) closePicker();
+  });
+
   fetch('firmware/devices.json', {cache: 'no-cache'})
     .then(response => { if (!response.ok) throw new Error('catalog'); return response.json(); })
     .then(data => {
@@ -45,21 +181,15 @@
       for (const device of devices) {
         const option = document.createElement('option');
         option.value = device.id;
-        option.textContent = `${device.name} · ${device.version} · ${device.hardware_tested ? 'модель проверена' : 'не проверено на устройстве'}`;
+        option.textContent = device.name;
         select.append(option);
       }
       const requested = new URL(location.href).searchParams.get('device');
       if (requested && !devices.some(device => device.id === requested)) throw new Error('unknown device');
       select.value = requested || 'x4c';
       select.disabled = false;
+      toggle.disabled = false;
       choose();
     })
-    .catch(() => {
-      status.classList.remove('tested');
-      status.textContent = 'Список прошивок или выбранная модель недоступны. Установка отключена; проверь адрес страницы и обнови её.';
-      select.disabled = true;
-      confirm.disabled = true;
-      installer.hidden = true;
-      download.hidden = true;
-    });
+    .catch(unavailable);
 })();
