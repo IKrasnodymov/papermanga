@@ -1,7 +1,7 @@
-# PaperManga 0.3.0 для M5Stack PaperS3
+# PaperManga 0.5.0 for M5Stack PaperS3
 
-На устройстве не проверено. Навигация через сенсор, панель ED047TC1. Возможности зависят от ревизии платы.
+Not tested on a device. Touch navigation, ED047TC1 panel. Features depend on the board revision.
 
-Установка в браузере: https://ikrasnodymov.github.io/papermanga/?device=papers3#install
+Install in your browser: https://ikrasnodymov.github.io/papermanga/?device=papers3#install
 
-Образ приложения сам по себе не включает загрузчик и таблицу разделов. Для первой установки используйте сайт или все части manifest.json с указанными адресами. Не стирайте NVS с заводской калибровкой.
+The app image on its own does not include the bootloader or the partition table. For a first install, use the website or flash every part listed in manifest.json at its address. Do not erase NVS: it holds the factory calibration.

@@ -1,7 +1,7 @@
-# PaperManga 0.3.0 для Seeed reTerminal Sticky
+# PaperManga 0.5.0 for Seeed reTerminal Sticky
 
-На устройстве не проверено. Передача глав по Wi-Fi или через карту. USB используется для прошивки, режим USB-диска недоступен.
+Not tested on a device. Chapters are sent over Wi-Fi or on the memory card. USB is used for flashing; USB drive mode is not available.
 
-Установка в браузере: https://ikrasnodymov.github.io/papermanga/?device=sticky#install
+Install in your browser: https://ikrasnodymov.github.io/papermanga/?device=sticky#install
 
-Образ приложения сам по себе не включает загрузчик и таблицу разделов. Для первой установки используйте сайт или все части manifest.json с указанными адресами. Не стирайте NVS с заводской калибровкой.
+The app image on its own does not include the bootloader or the partition table. For a first install, use the website or flash every part listed in manifest.json at its address. Do not erase NVS: it holds the factory calibration.

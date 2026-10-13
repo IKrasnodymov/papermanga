@@ -1,7 +1,7 @@
-# PaperManga 0.3.0 для Waveshare ESP32-S3-ePaper-3.97
+# PaperManga 0.5.0 for Waveshare ESP32-S3-ePaper-3.97
 
-На устройстве не проверено. Профиль рассчитан на AXP2101; документация также описывает TG28. Сверьте контроллер питания своей платы.
+Not tested on a device. The profile targets the AXP2101; the vendor docs also describe a TG28. Check which power controller your board has.
 
-Установка в браузере: https://ikrasnodymov.github.io/papermanga/?device=ws397#install
+Install in your browser: https://ikrasnodymov.github.io/papermanga/?device=ws397#install
 
-Образ приложения сам по себе не включает загрузчик и таблицу разделов. Для первой установки используйте сайт или все части manifest.json с указанными адресами. Не стирайте NVS с заводской калибровкой.
+The app image on its own does not include the bootloader or the partition table. For a first install, use the website or flash every part listed in manifest.json at its address. Do not erase NVS: it holds the factory calibration.

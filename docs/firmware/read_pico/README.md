@@ -1,7 +1,7 @@
-# PaperManga 0.3.0 для Read Pico
+# PaperManga 0.5.0 for Read Pico
 
-На устройстве не проверено. Используется заводской BSP и VCOM из PMU. Только Read Pico с экраном 1216×684.
+Not tested on a device. Uses the vendor BSP and the VCOM stored in the PMU. Only the Read Pico with the 1216×684 screen.
 
-Установка в браузере: https://ikrasnodymov.github.io/papermanga/?device=read_pico#install
+Install in your browser: https://ikrasnodymov.github.io/papermanga/?device=read_pico#install
 
-Образ приложения сам по себе не включает загрузчик и таблицу разделов. Для первой установки используйте сайт или все части manifest.json с указанными адресами. Не стирайте NVS с заводской калибровкой.
+The app image on its own does not include the bootloader or the partition table. For a first install, use the website or flash every part listed in manifest.json at its address. Do not erase NVS: it holds the factory calibration.

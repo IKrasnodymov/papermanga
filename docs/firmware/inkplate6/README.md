@@ -1,7 +1,7 @@
-# PaperManga 0.3.0 для Inkplate 6
+# PaperManga 0.5.0 for Inkplate 6
 
-На устройстве не проверено. Только Inkplate 6 800×600 на ESP32-WROVER; 6 Plus и 6 Motion не совместимы.
+Not tested on a device. Only the Inkplate 6 800×600 on ESP32-WROVER; the 6 Plus and 6 Motion are not compatible.
 
-Установка в браузере: https://ikrasnodymov.github.io/papermanga/?device=inkplate6#install
+Install in your browser: https://ikrasnodymov.github.io/papermanga/?device=inkplate6#install
 
-Образ приложения сам по себе не включает загрузчик и таблицу разделов. Для первой установки используйте сайт или все части manifest.json с указанными адресами. Не стирайте NVS с заводской калибровкой.
+The app image on its own does not include the bootloader or the partition table. For a first install, use the website or flash every part listed in manifest.json at its address. Do not erase NVS: it holds the factory calibration.

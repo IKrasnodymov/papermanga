@@ -2,8 +2,8 @@
   "device": "papers3",
   "hardware_tested": false,
   "built": true,
-  "source_sha256": "06e4e03acfcd7b86bd2d6359e74ae3de05128c271eb1f77749179c714646123c",
-  "image_sha256": "987bed2ca58191886c286f9233ce1d568bab536c6443c8f3602a306587a0fbfd",
-  "compiled_at": "2026-10-13T06:08:50.391929+00:00",
+  "source_sha256": "7535cfc0ddeee6ff4db1dfb64f413ebbc0ebf7cd8dd1ebcf31d9d806a44dad91",
+  "image_sha256": "6c6bd900fc723e1eabe197bd3b710e581a48f086d4faf10dc4efa1fd14ac906f",
+  "compiled_at": "2026-10-13T12:14:55.961144+00:00",
   "target": "esp32s3"
 }

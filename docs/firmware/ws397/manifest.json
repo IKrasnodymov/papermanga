@@ -1,6 +1,6 @@
 {
   "name": "PaperManga — Waveshare ESP32-S3-ePaper-3.97",
-  "version": "0.3.0",
+  "version": "0.5.0",
   "new_install_prompt_erase": true,
   "builds": [
     {

@@ -1,7 +1,7 @@
-# PaperManga 0.3.0 для Xteink X4 Pro Developer Edition
+# PaperManga 0.5.0 for Xteink X4 Pro Developer Edition
 
-На устройстве не проверено. SSD1677, UC8179 и UC8279 выбираются аппаратным профилем. Нужна Developer Edition.
+Not tested on a device. SSD1677, UC8179 and UC8279 are chosen by the hardware profile. Requires the Developer Edition.
 
-Установка в браузере: https://ikrasnodymov.github.io/papermanga/?device=x4pro#install
+Install in your browser: https://ikrasnodymov.github.io/papermanga/?device=x4pro#install
 
-Образ приложения сам по себе не включает загрузчик и таблицу разделов. Для первой установки используйте сайт или все части manifest.json с указанными адресами. Не стирайте NVS с заводской калибровкой.
+The app image on its own does not include the bootloader or the partition table. For a first install, use the website or flash every part listed in manifest.json at its address. Do not erase NVS: it holds the factory calibration.

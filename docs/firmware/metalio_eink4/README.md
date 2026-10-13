@@ -1,7 +1,7 @@
-# PaperManga 0.3.0 для Metalio E-Ink 4
+# PaperManga 0.5.0 for Metalio E-Ink 4
 
-На устройстве не проверено. Только E-Ink 4 3,97″; E-Ink 4 Plus не совместим. Есть расхождения распиновки в исходниках производителя.
+Not tested on a device. Only the E-Ink 4 3.97″; the E-Ink 4 Plus is not compatible. The vendor's sources disagree on some pin assignments.
 
-Установка в браузере: https://ikrasnodymov.github.io/papermanga/?device=metalio_eink4#install
+Install in your browser: https://ikrasnodymov.github.io/papermanga/?device=metalio_eink4#install
 
-Образ приложения сам по себе не включает загрузчик и таблицу разделов. Для первой установки используйте сайт или все части manifest.json с указанными адресами. Не стирайте NVS с заводской калибровкой.
+The app image on its own does not include the bootloader or the partition table. For a first install, use the website or flash every part listed in manifest.json at its address. Do not erase NVS: it holds the factory calibration.

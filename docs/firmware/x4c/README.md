@@ -1,7 +1,7 @@
-# PaperManga 0.2.5 для Xteink X4 Classic
+# PaperManga 0.5.0 for Xteink X4 Classic
 
-Проверено на нашем X4 Classic с UC8279. Другие панели и аппаратные ревизии не проверены.
+Tested on our X4 Classic with UC8279. Other panels and hardware revisions are not tested.
 
-Установка в браузере: https://ikrasnodymov.github.io/papermanga/?device=x4c#install
+Install in your browser: https://ikrasnodymov.github.io/papermanga/?device=x4c#install
 
-Образ приложения сам по себе не включает загрузчик и таблицу разделов. Для первой установки используйте сайт или все части manifest.json с указанными адресами. Не стирайте NVS с заводской калибровкой.
+The app image on its own does not include the bootloader or the partition table. For a first install, use the website or flash every part listed in manifest.json at its address. Do not erase NVS: it holds the factory calibration.

@@ -1,6 +1,6 @@
 {
   "name": "PaperManga — Xteink X4 ESP32-C3",
-  "version": "0.3.0",
+  "version": "0.5.0",
   "new_install_prompt_erase": true,
   "builds": [
     {

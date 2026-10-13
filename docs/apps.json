@@ -1,30 +1,30 @@
 {
   "schema": 1,
-  "version": "0.4.0",
+  "version": "0.5.0",
   "hardware_tested": false,
   "applications": [
     {
       "id": "kobo",
-      "version": "0.4.0",
+      "version": "0.5.0",
       "built": true,
       "hardware_tested": false,
       "abi": "ARM32 hard-float",
-      "file": "papermanga-kobo-0.4.0.zip",
-      "url": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.4.0/papermanga-kobo-0.4.0.zip",
-      "size": 3275878,
-      "sha256": "754a3fb5dc04097f7badd00cf3e68fdedcb940a380e38e4027d0f6a605903730",
+      "file": "papermanga-kobo-0.5.0.zip",
+      "url": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.5.0/papermanga-kobo-0.5.0.zip",
+      "size": 3273052,
+      "sha256": "7bf1b07046f58aaac0904e84707f5be53085c537454e58d43684236614fd20d9",
       "verification": {
         "platform": "kobo",
-        "version": "0.4.0",
+        "version": "0.5.0",
         "built": true,
         "hardware_tested": false,
-        "source_sha256": "942a1474acbe7314541f4dbbb022299d2854b268b49df49a41ac37300428c032",
+        "source_sha256": "a42738e32f75b6eae19aef00c6b409522f3a633d8efbacd2f1703dfc32448039",
         "compiler": "arm-kobo-linux-gnueabihf-g++ (crosstool-NG UNKNOWN - NiLuJe) 14.4.0",
-        "built_at": "2026-10-13T10:39:28.573717+00:00",
+        "built_at": "2026-10-13T12:11:04.884410+00:00",
         "files": {
           "papermanga": {
-            "size": 1180140,
-            "sha256": "09d43114c806b984fd697ba4002e44374c1ade677098f95773267c175c19f89f"
+            "size": 1176044,
+            "sha256": "052dc3a43922c438fc822ad26c9c2cb25e71b218d0464ad362a784227470333d"
           },
           "curl": {
             "size": 3682636,
@@ -39,26 +39,26 @@
     },
     {
       "id": "pocketbook",
-      "version": "0.4.0",
+      "version": "0.5.0",
       "built": true,
       "hardware_tested": false,
       "abi": "ARM32 EABI",
-      "file": "papermanga-pocketbook-0.4.0.zip",
-      "url": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.4.0/papermanga-pocketbook-0.4.0.zip",
-      "size": 3034347,
-      "sha256": "282d17ae9c00a6096d2cdc27c3afc22087268ff912682094c296f6f0916f1abf",
+      "file": "papermanga-pocketbook-0.5.0.zip",
+      "url": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.5.0/papermanga-pocketbook-0.5.0.zip",
+      "size": 3031412,
+      "sha256": "8a5324c599237c9c79a8b2d0b06f22d1d3b76b468fed5e2643b438bbf55e8f07",
       "verification": {
         "platform": "pocketbook",
-        "version": "0.4.0",
+        "version": "0.5.0",
         "built": true,
         "hardware_tested": false,
-        "source_sha256": "942a1474acbe7314541f4dbbb022299d2854b268b49df49a41ac37300428c032",
+        "source_sha256": "a42738e32f75b6eae19aef00c6b409522f3a633d8efbacd2f1703dfc32448039",
         "compiler": "arm-pocketbook-linux-gnueabi-g++ (crosstool-NG UNKNOWN - NiLuJe) 14.4.0",
-        "built_at": "2026-10-13T10:39:32.597592+00:00",
+        "built_at": "2026-10-13T12:11:18.775232+00:00",
         "files": {
           "papermanga": {
-            "size": 916012,
-            "sha256": "a068655daa2a9b8e50efc764bcc391e69012c631cd375ad112d0ce00217fb366"
+            "size": 911916,
+            "sha256": "71fb75c3caf6f7cc08b165708c32116d55c5d8cb77d22638b58cdb9cc2ebeaf9"
           },
           "curl": {
             "size": 4763976,
@@ -69,7 +69,7 @@
     },
     {
       "id": "android",
-      "version": "0.4.0",
+      "version": "0.5.0",
       "built": true,
       "hardware_tested": false,
       "min_android": 7,
@@ -78,22 +78,22 @@
         "armeabi-v7a",
         "x86_64"
       ],
-      "file": "papermanga-android-0.4.0.apk",
-      "url": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.4.0/papermanga-android-0.4.0.apk",
-      "size": 3029917,
-      "sha256": "3dc97b0546200c5aecdcbdab6228d7219a4623af8fd18bdcb4636fe7881fc631",
+      "file": "papermanga-android-0.5.0.apk",
+      "url": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.5.0/papermanga-android-0.5.0.apk",
+      "size": 3007901,
+      "sha256": "655da69d0f66bb5fb7efb05a1e7c8f7aaaa3f33a35d0f708b679c6d6354e2ed0",
       "verification": {
         "platform": "android",
-        "version": "0.4.0",
+        "version": "0.5.0",
         "built": true,
         "hardware_tested": false,
-        "source_sha256": "942a1474acbe7314541f4dbbb022299d2854b268b49df49a41ac37300428c032",
+        "source_sha256": "a42738e32f75b6eae19aef00c6b409522f3a633d8efbacd2f1703dfc32448039",
         "compiler": "AGP 8.9.2 / Gradle 8.12 / Android NDK 27.0.12077973 (Clang 18)",
-        "built_at": "2026-10-13T10:39:37.251786+00:00",
+        "built_at": "2026-10-13T12:11:28.371257+00:00",
         "files": {
           "app-release.apk": {
-            "size": 3029917,
-            "sha256": "3dc97b0546200c5aecdcbdab6228d7219a4623af8fd18bdcb4636fe7881fc631"
+            "size": 3007901,
+            "sha256": "655da69d0f66bb5fb7efb05a1e7c8f7aaaa3f33a35d0f708b679c6d6354e2ed0"
           }
         }
       }

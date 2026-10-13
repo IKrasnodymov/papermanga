@@ -2,8 +2,8 @@
   "device": "lilygo_t5s3",
   "hardware_tested": false,
   "built": true,
-  "source_sha256": "06e4e03acfcd7b86bd2d6359e74ae3de05128c271eb1f77749179c714646123c",
-  "image_sha256": "aa1e1e0c09a33a0f17dc1e6b682fe23fb2961bcb3fca9154c2858d753550c01d",
-  "compiled_at": "2026-10-13T06:10:10.975699+00:00",
+  "source_sha256": "7535cfc0ddeee6ff4db1dfb64f413ebbc0ebf7cd8dd1ebcf31d9d806a44dad91",
+  "image_sha256": "75d249fcf3fb05ce0eaed13113a3e81cc9c44d04f4a1551de7a34b05e36802b7",
+  "compiled_at": "2026-10-13T12:18:23.481666+00:00",
   "target": "esp32s3"
 }

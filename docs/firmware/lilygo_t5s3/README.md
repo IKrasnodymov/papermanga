@@ -1,7 +1,7 @@
-# PaperManga 0.3.0 для LilyGO T5 E-Paper S3 Pro
+# PaperManga 0.5.0 for LilyGO T5 E-Paper S3 Pro
 
-На устройстве не проверено. Только T5 S3 Pro с ED047TC1, TPS65185 и PCA9535; другие T5 не совместимы.
+Not tested on a device. Only the T5 S3 Pro with ED047TC1, TPS65185 and PCA9535; other T5 boards are not compatible.
 
-Установка в браузере: https://ikrasnodymov.github.io/papermanga/?device=lilygo_t5s3#install
+Install in your browser: https://ikrasnodymov.github.io/papermanga/?device=lilygo_t5s3#install
 
-Образ приложения сам по себе не включает загрузчик и таблицу разделов. Для первой установки используйте сайт или все части manifest.json с указанными адресами. Не стирайте NVS с заводской калибровкой.
+The app image on its own does not include the bootloader or the partition table. For a first install, use the website or flash every part listed in manifest.json at its address. Do not erase NVS: it holds the factory calibration.

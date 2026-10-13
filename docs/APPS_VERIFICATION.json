@@ -1,57 +1,64 @@
 {
-  "version": "0.4.0",
+  "version": "0.5.0",
+  "source_sha256": "a42738e32f75b6eae19aef00c6b409522f3a633d8efbacd2f1703dfc32448039",
   "hardware_tested": false,
-  "source_sha256": "942a1474acbe7314541f4dbbb022299d2854b268b49df49a41ac37300428c032",
-  "verified_at": "2026-10-13T10:45:11.067106+00:00",
-  "checks": {
-    "python_regressions": {
-      "passed": 49
+  "builds": {
+    "kobo": {
+      "platform": "kobo",
+      "version": "0.5.0",
+      "built": true,
+      "hardware_tested": false,
+      "source_sha256": "a42738e32f75b6eae19aef00c6b409522f3a633d8efbacd2f1703dfc32448039",
+      "compiler": "arm-kobo-linux-gnueabihf-g++ (crosstool-NG UNKNOWN - NiLuJe) 14.4.0",
+      "built_at": "2026-10-13T12:11:04.884410+00:00",
+      "files": {
+        "papermanga": {
+          "size": 1176044,
+          "sha256": "052dc3a43922c438fc822ad26c9c2cb25e71b218d0464ad362a784227470333d"
+        },
+        "curl": {
+          "size": 3682636,
+          "sha256": "7a4c450198d83185f2050e2abc4effb9b56fdd2da66743ff3bcfc9a47b777696"
+        },
+        "fbink": {
+          "size": 296904,
+          "sha256": "5a3154f09ee27916ac4f8e7512b0b17a8605227c155081570c9bd97bb6fa0eae"
+        }
+      }
     },
-    "firmware_host_ctest": {
-      "passed": 3
+    "pocketbook": {
+      "platform": "pocketbook",
+      "version": "0.5.0",
+      "built": true,
+      "hardware_tested": false,
+      "source_sha256": "a42738e32f75b6eae19aef00c6b409522f3a633d8efbacd2f1703dfc32448039",
+      "compiler": "arm-pocketbook-linux-gnueabi-g++ (crosstool-NG UNKNOWN - NiLuJe) 14.4.0",
+      "built_at": "2026-10-13T12:11:18.775232+00:00",
+      "files": {
+        "papermanga": {
+          "size": 911916,
+          "sha256": "71fb75c3caf6f7cc08b165708c32116d55c5d8cb77d22638b58cdb9cc2ebeaf9"
+        },
+        "curl": {
+          "size": 4763976,
+          "sha256": "7df791751b86e73c92f2439cf99e22aa37129da204f784c786010e8c3fe77197"
+        }
+      }
     },
-    "application_host_ctest": {
-      "passed": 1
-    },
-    "arm_runtime_qemu": [
-      "kobo (Debian armhf userspace)",
-      "pocketbook (official SDK userspace)"
-    ],
-    "native_network": [
-      "query array parameters",
-      "headers",
-      "POST JSON quoting",
-      "image conversion and XTCH readback",
-      "TLS to MangaDex API with bundled CA certificates"
-    ],
-    "pocketbook_sdk_abi": [
-      "bitmap allocation and drawing",
-      "touch",
-      "Prev/Next/OK keys",
-      "hide/show",
-      "exit"
-    ],
     "android": {
-      "abis_built": [
-        "arm64-v8a",
-        "armeabi-v7a",
-        "x86_64"
-      ],
-      "runtime_tested": "arm64 emulator / Android 36.1 / emulator 37.2.12",
-      "checks": [
-        "signed release APK installed and launched",
-        "SAF file import",
-        "Unicode filename import",
-        "volume page keys",
-        "saved reading position after background and restart"
-      ],
-      "apk_sha256": "3dc97b0546200c5aecdcbdab6228d7219a4623af8fd18bdcb4636fe7881fc631"
-    },
-    "esp32c3_compilation": "passed; resulting firmware not published"
-  },
-  "limitations": [
-    "No physical Kobo, PocketBook or Android device was tested",
-    "E Ink refresh, touch calibration, sleep and battery require real-device validation",
-    "Linux applications in this release are ARM32 only"
-  ]
+      "platform": "android",
+      "version": "0.5.0",
+      "built": true,
+      "hardware_tested": false,
+      "source_sha256": "a42738e32f75b6eae19aef00c6b409522f3a633d8efbacd2f1703dfc32448039",
+      "compiler": "AGP 8.9.2 / Gradle 8.12 / Android NDK 27.0.12077973 (Clang 18)",
+      "built_at": "2026-10-13T12:11:28.371257+00:00",
+      "files": {
+        "app-release.apk": {
+          "size": 3007901,
+          "sha256": "655da69d0f66bb5fb7efb05a1e7c8f7aaaa3f33a35d0f708b679c6d6354e2ed0"
+        }
+      }
+    }
+  }
 }

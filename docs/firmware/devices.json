@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "release": "0.3.0",
+  "release": "0.5.0",
   "devices": [
     {
       "id": "x4c",
@@ -17,15 +17,15 @@
       "tested_version": "0.2.4",
       "tested_panel": "UC8279",
       "usb": true,
-      "notes": "Проверено на нашем X4 Classic с UC8279. Другие панели и аппаратные ревизии не проверены.",
-      "version": "0.2.5",
+      "notes": "Tested on our X4 Classic with UC8279. Other panels and hardware revisions are not tested.",
+      "version": "0.5.0",
       "built": true,
       "manifest": "firmware/x4c/manifest.json",
-      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.3.0/papermanga.bin"
+      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.5.0/papermanga.bin"
     },
     {
       "id": "x4c_all",
-      "name": "Xteink X4 Classic · экспериментальная 0.3",
+      "name": "Xteink X4 Classic · experimental",
       "target": "esp32s3",
       "chipFamily": "ESP32-S3",
       "flash_mb": 16,
@@ -36,12 +36,12 @@
       "backend": "freeink",
       "sdk_flag": "X4CLASSIC",
       "usb": true,
-      "notes": "На устройстве не проверено. Автовыбор SSD1677/UC8179/UC8279. Самостоятельная прошивка без соседнего CrossPoint; проверенный вариант Classic доступен отдельно.",
-      "version": "0.3.0",
+      "notes": "Not tested on a device. Picks SSD1677/UC8179/UC8279 automatically. Standalone firmware without CrossPoint alongside; the tested Classic version is available separately.",
+      "version": "0.5.0",
       "built": true,
       "hardware_tested": false,
       "manifest": "firmware/x4c_all/manifest.json",
-      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.3.0/papermanga-x4c_all.bin"
+      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.5.0/papermanga-x4c_all.bin"
     },
     {
       "id": "x4pro",
@@ -56,14 +56,14 @@
       "backend": "freeink",
       "sdk_flag": "X4PRO",
       "usb": true,
-      "notes": "На устройстве не проверено. SSD1677, UC8179 и UC8279 выбираются аппаратным профилем. Нужна Developer Edition.",
+      "notes": "Not tested on a device. SSD1677, UC8179 and UC8279 are chosen by the hardware profile. Requires the Developer Edition.",
       "frontlight": true,
       "warmlight": true,
-      "version": "0.3.0",
+      "version": "0.5.0",
       "built": true,
       "hardware_tested": false,
       "manifest": "firmware/x4pro/manifest.json",
-      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.3.0/papermanga-x4pro.bin"
+      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.5.0/papermanga-x4pro.bin"
     },
     {
       "id": "papers3",
@@ -78,12 +78,12 @@
       "backend": "freeink",
       "sdk_flag": "PAPERS3",
       "usb": true,
-      "notes": "На устройстве не проверено. Навигация через сенсор, панель ED047TC1. Возможности зависят от ревизии платы.",
-      "version": "0.3.0",
+      "notes": "Not tested on a device. Touch navigation, ED047TC1 panel. Features depend on the board revision.",
+      "version": "0.5.0",
       "built": true,
       "hardware_tested": false,
       "manifest": "firmware/papers3/manifest.json",
-      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.3.0/papermanga-papers3.bin"
+      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.5.0/papermanga-papers3.bin"
     },
     {
       "id": "sticky",
@@ -98,12 +98,12 @@
       "backend": "freeink",
       "sdk_flag": "STICKY",
       "usb": false,
-      "notes": "На устройстве не проверено. Передача глав по Wi-Fi или через карту. USB используется для прошивки, режим USB-диска недоступен.",
-      "version": "0.3.0",
+      "notes": "Not tested on a device. Chapters are sent over Wi-Fi or on the memory card. USB is used for flashing; USB drive mode is not available.",
+      "version": "0.5.0",
       "built": true,
       "hardware_tested": false,
       "manifest": "firmware/sticky/manifest.json",
-      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.3.0/papermanga-sticky.bin"
+      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.5.0/papermanga-sticky.bin"
     },
     {
       "id": "papermono",
@@ -118,13 +118,13 @@
       "backend": "freeink",
       "sdk_flag": "PAPERMONO",
       "usb": true,
-      "notes": "На устройстве не проверено. Сенсор FT6336G, подсветка и питание через M5PM1. Качество серых тонов требует проверки.",
+      "notes": "Not tested on a device. FT6336G touch, front light and power via M5PM1. Grey tone quality still needs checking.",
       "frontlight": true,
-      "version": "0.3.0",
+      "version": "0.5.0",
       "built": true,
       "hardware_tested": false,
       "manifest": "firmware/papermono/manifest.json",
-      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.3.0/papermanga-papermono.bin"
+      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.5.0/papermanga-papermono.bin"
     },
     {
       "id": "lilygo_t5s3",
@@ -139,13 +139,13 @@
       "backend": "freeink",
       "sdk_flag": "LILYGO",
       "usb": true,
-      "notes": "На устройстве не проверено. Только T5 S3 Pro с ED047TC1, TPS65185 и PCA9535; другие T5 не совместимы.",
+      "notes": "Not tested on a device. Only the T5 S3 Pro with ED047TC1, TPS65185 and PCA9535; other T5 boards are not compatible.",
       "frontlight": true,
-      "version": "0.3.0",
+      "version": "0.5.0",
       "built": true,
       "hardware_tested": false,
       "manifest": "firmware/lilygo_t5s3/manifest.json",
-      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.3.0/papermanga-lilygo_t5s3.bin"
+      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.5.0/papermanga-lilygo_t5s3.bin"
     },
     {
       "id": "ws397",
@@ -160,12 +160,12 @@
       "backend": "freeink",
       "sdk_flag": "WS397",
       "usb": true,
-      "notes": "На устройстве не проверено. Профиль рассчитан на AXP2101; документация также описывает TG28. Сверьте контроллер питания своей платы.",
-      "version": "0.3.0",
+      "notes": "Not tested on a device. The profile targets the AXP2101; the vendor docs also describe a TG28. Check which power controller your board has.",
+      "version": "0.5.0",
       "built": true,
       "hardware_tested": false,
       "manifest": "firmware/ws397/manifest.json",
-      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.3.0/papermanga-ws397.bin"
+      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.5.0/papermanga-ws397.bin"
     },
     {
       "id": "read_pico",
@@ -179,12 +179,12 @@
       ],
       "backend": "read_pico",
       "usb": true,
-      "notes": "На устройстве не проверено. Используется заводской BSP и VCOM из PMU. Только Read Pico с экраном 1216×684.",
-      "version": "0.3.0",
+      "notes": "Not tested on a device. Uses the vendor BSP and the VCOM stored in the PMU. Only the Read Pico with the 1216×684 screen.",
+      "version": "0.5.0",
       "built": true,
       "hardware_tested": false,
       "manifest": "firmware/read_pico/manifest.json",
-      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.3.0/papermanga-read_pico.bin"
+      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.5.0/papermanga-read_pico.bin"
     },
     {
       "id": "metalio_eink4",
@@ -199,12 +199,12 @@
       "backend": "freeink",
       "sdk_flag": "METALIO_EINK4",
       "usb": true,
-      "notes": "На устройстве не проверено. Только E-Ink 4 3,97″; E-Ink 4 Plus не совместим. Есть расхождения распиновки в исходниках производителя.",
-      "version": "0.3.0",
+      "notes": "Not tested on a device. Only the E-Ink 4 3.97″; the E-Ink 4 Plus is not compatible. The vendor's sources disagree on some pin assignments.",
+      "version": "0.5.0",
       "built": true,
       "hardware_tested": false,
       "manifest": "firmware/metalio_eink4/manifest.json",
-      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.3.0/papermanga-metalio_eink4.bin"
+      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.5.0/papermanga-metalio_eink4.bin"
     },
     {
       "id": "picco",
@@ -219,14 +219,14 @@
       "backend": "freeink",
       "sdk_flag": "PICCO",
       "usb": true,
-      "notes": "На устройстве не проверено. Экспериментальный аппаратный профиль; сенсор пока не поддерживается. Возможность прошивки зависит от загрузчика.",
+      "notes": "Not tested on a device. Experimental hardware profile; touch is not supported yet. Whether it can be flashed depends on the bootloader.",
       "frontlight": true,
       "warmlight": true,
-      "version": "0.3.0",
+      "version": "0.5.0",
       "built": true,
       "hardware_tested": false,
       "manifest": "firmware/picco/manifest.json",
-      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.3.0/papermanga-picco.bin"
+      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.5.0/papermanga-picco.bin"
     },
     {
       "id": "m5paper",
@@ -241,12 +241,12 @@
       "backend": "freeink",
       "sdk_flag": "M5PAPER",
       "usb": false,
-      "notes": "На устройстве не проверено. Классический ESP32 с IT8951. Это не PaperS3. Передача глав по Wi-Fi или через карту.",
-      "version": "0.3.0",
+      "notes": "Not tested on a device. Classic ESP32 with IT8951. This is not the PaperS3. Chapters are sent over Wi-Fi or on the memory card.",
+      "version": "0.5.0",
       "built": true,
       "hardware_tested": false,
       "manifest": "firmware/m5paper/manifest.json",
-      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.3.0/papermanga-m5paper.bin"
+      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.5.0/papermanga-m5paper.bin"
     },
     {
       "id": "inkplate6",
@@ -260,13 +260,13 @@
       ],
       "backend": "inkplate",
       "usb": false,
-      "notes": "На устройстве не проверено. Только Inkplate 6 800×600 на ESP32-WROVER; 6 Plus и 6 Motion не совместимы.",
+      "notes": "Not tested on a device. Only the Inkplate 6 800×600 on ESP32-WROVER; the 6 Plus and 6 Motion are not compatible.",
       "ota": false,
-      "version": "0.3.0",
+      "version": "0.5.0",
       "built": true,
       "hardware_tested": false,
       "manifest": "firmware/inkplate6/manifest.json",
-      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.3.0/papermanga-inkplate6.bin"
+      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.5.0/papermanga-inkplate6.bin"
     },
     {
       "id": "x4",
@@ -282,12 +282,12 @@
       "sdk_flag": "X4",
       "lite": true,
       "usb": false,
-      "notes": "На устройстве не проверено. Облегчённая ч/б версия: главы готовит компьютер. Это старый X4, не X4 Classic.",
-      "version": "0.3.0",
+      "notes": "Not tested on a device. Lite black-and-white version: a computer prepares the chapters. This is the older X4, not the X4 Classic.",
+      "version": "0.5.0",
       "built": true,
       "hardware_tested": false,
       "manifest": "firmware/x4/manifest.json",
-      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.3.0/papermanga-x4.bin"
+      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.5.0/papermanga-x4.bin"
     },
     {
       "id": "x3",
@@ -303,12 +303,12 @@
       "sdk_flag": "X3",
       "lite": true,
       "usb": false,
-      "notes": "На устройстве не проверено. Облегчённая ч/б версия: главы готовит компьютер. Панели UC8253/UC8279d требуют проверки.",
-      "version": "0.3.0",
+      "notes": "Not tested on a device. Lite black-and-white version: a computer prepares the chapters. The UC8253/UC8279d panels still need testing.",
+      "version": "0.5.0",
       "built": true,
       "hardware_tested": false,
       "manifest": "firmware/x3/manifest.json",
-      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.3.0/papermanga-x3.bin"
+      "download": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.5.0/papermanga-x3.bin"
     }
   ]
 }

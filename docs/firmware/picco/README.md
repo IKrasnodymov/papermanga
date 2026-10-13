@@ -1,7 +1,7 @@
-# PaperManga 0.3.0 для BOOX Picco
+# PaperManga 0.5.0 for BOOX Picco
 
-На устройстве не проверено. Экспериментальный аппаратный профиль; сенсор пока не поддерживается. Возможность прошивки зависит от загрузчика.
+Not tested on a device. Experimental hardware profile; touch is not supported yet. Whether it can be flashed depends on the bootloader.
 
-Установка в браузере: https://ikrasnodymov.github.io/papermanga/?device=picco#install
+Install in your browser: https://ikrasnodymov.github.io/papermanga/?device=picco#install
 
-Образ приложения сам по себе не включает загрузчик и таблицу разделов. Для первой установки используйте сайт или все части manifest.json с указанными адресами. Не стирайте NVS с заводской калибровкой.
+The app image on its own does not include the bootloader or the partition table. For a first install, use the website or flash every part listed in manifest.json at its address. Do not erase NVS: it holds the factory calibration.

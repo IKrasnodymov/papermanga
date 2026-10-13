@@ -1,7 +1,7 @@
-# PaperManga 0.3.0 для M5Stack Paper Mono
+# PaperManga 0.5.0 for M5Stack Paper Mono
 
-На устройстве не проверено. Сенсор FT6336G, подсветка и питание через M5PM1. Качество серых тонов требует проверки.
+Not tested on a device. FT6336G touch, front light and power via M5PM1. Grey tone quality still needs checking.
 
-Установка в браузере: https://ikrasnodymov.github.io/papermanga/?device=papermono#install
+Install in your browser: https://ikrasnodymov.github.io/papermanga/?device=papermono#install
 
-Образ приложения сам по себе не включает загрузчик и таблицу разделов. Для первой установки используйте сайт или все части manifest.json с указанными адресами. Не стирайте NVS с заводской калибровкой.
+The app image on its own does not include the bootloader or the partition table. For a first install, use the website or flash every part listed in manifest.json at its address. Do not erase NVS: it holds the factory calibration.
