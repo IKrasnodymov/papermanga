@@ -1,4 +1,4 @@
-# PaperManga 0.5.0 for Xteink X4 Classic · experimental
+# PaperManga 0.5.1 for Xteink X4 Classic · experimental
 
 Not tested on a device. Picks SSD1677/UC8179/UC8279 automatically. Standalone firmware without CrossPoint alongside; the tested Classic version is available separately.
 

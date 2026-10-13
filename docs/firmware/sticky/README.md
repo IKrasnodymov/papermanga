@@ -1,4 +1,4 @@
-# PaperManga 0.5.0 for Seeed reTerminal Sticky
+# PaperManga 0.5.1 for Seeed reTerminal Sticky
 
 Not tested on a device. Chapters are sent over Wi-Fi or on the memory card. USB is used for flashing; USB drive mode is not available.
 

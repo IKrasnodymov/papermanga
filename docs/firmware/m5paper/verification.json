@@ -2,8 +2,8 @@
   "device": "m5paper",
   "hardware_tested": false,
   "built": true,
-  "source_sha256": "7535cfc0ddeee6ff4db1dfb64f413ebbc0ebf7cd8dd1ebcf31d9d806a44dad91",
-  "image_sha256": "eafaafd0f6fc0f0365ee2cc3d07c5aafa64882500ccc45ce0d5be3aef92a62ec",
-  "compiled_at": "2026-10-13T12:23:49.019259+00:00",
+  "source_sha256": "7776a873bb38da221f06f3f223851b48c5ddcbd5173dd6666344d5abc51f7c36",
+  "image_sha256": "b918f243d38cad5fa8a9d2f63e9554029c72823e7a7e78fcc58f5550f2838974",
+  "compiled_at": "2026-10-13T14:20:06.087821+00:00",
   "target": "esp32"
 }

@@ -2,8 +2,8 @@
   "device": "inkplate6",
   "hardware_tested": false,
   "built": true,
-  "source_sha256": "7535cfc0ddeee6ff4db1dfb64f413ebbc0ebf7cd8dd1ebcf31d9d806a44dad91",
-  "image_sha256": "11a9845192da72eac583edff039c0b7e74922c9958b99a8d16cdefd99f59c14b",
-  "compiled_at": "2026-10-13T12:24:57.091428+00:00",
+  "source_sha256": "7776a873bb38da221f06f3f223851b48c5ddcbd5173dd6666344d5abc51f7c36",
+  "image_sha256": "31e05c50077bb7cef20193f992259d968a94170f4b55b6b526a2977fd0b22c05",
+  "compiled_at": "2026-10-13T14:22:01.939599+00:00",
   "target": "esp32"
 }

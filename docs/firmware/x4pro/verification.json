@@ -2,8 +2,8 @@
   "device": "x4pro",
   "hardware_tested": false,
   "built": true,
-  "source_sha256": "7535cfc0ddeee6ff4db1dfb64f413ebbc0ebf7cd8dd1ebcf31d9d806a44dad91",
-  "image_sha256": "6c9c6dc0a667cca8f674f5d893ab2d5ccd02da1b5a06180cf8299f7e39bf2dad",
-  "compiled_at": "2026-10-13T12:13:46.111869+00:00",
+  "source_sha256": "7776a873bb38da221f06f3f223851b48c5ddcbd5173dd6666344d5abc51f7c36",
+  "image_sha256": "4e0c86eec40dfe5a079d93f158092c5122e343f1b4a9d52dfca23089aa15c247",
+  "compiled_at": "2026-10-13T14:00:07.825254+00:00",
   "target": "esp32s3"
 }

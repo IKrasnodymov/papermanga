@@ -1,4 +1,4 @@
-# PaperManga 0.5.0 for BOOX Picco
+# PaperManga 0.5.1 for BOOX Picco
 
 Not tested on a device. Experimental hardware profile; touch is not supported yet. Whether it can be flashed depends on the bootloader.
 

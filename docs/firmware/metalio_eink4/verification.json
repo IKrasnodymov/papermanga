@@ -2,8 +2,8 @@
   "device": "metalio_eink4",
   "hardware_tested": false,
   "built": true,
-  "source_sha256": "7535cfc0ddeee6ff4db1dfb64f413ebbc0ebf7cd8dd1ebcf31d9d806a44dad91",
-  "image_sha256": "6b268a0bc04914771374a2fa5e370c4da5abb024e10f9718ea429d63339a63fd",
-  "compiled_at": "2026-10-13T12:21:29.746355+00:00",
+  "source_sha256": "7776a873bb38da221f06f3f223851b48c5ddcbd5173dd6666344d5abc51f7c36",
+  "image_sha256": "ecfd8e28eb8e9f84edf35f3ee266ddc40dd220f3263fb84b0b9456b4ac6a5eb9",
+  "compiled_at": "2026-10-13T14:15:29.256370+00:00",
   "target": "esp32s3"
 }

@@ -2,8 +2,8 @@
   "device": "ws397",
   "hardware_tested": false,
   "built": true,
-  "source_sha256": "7535cfc0ddeee6ff4db1dfb64f413ebbc0ebf7cd8dd1ebcf31d9d806a44dad91",
-  "image_sha256": "0cefd7196e96dcb3fe1d7b9458a72c783771ed0f150085a3b42c3981b06bdb6a",
-  "compiled_at": "2026-10-13T12:19:27.442229+00:00",
+  "source_sha256": "7776a873bb38da221f06f3f223851b48c5ddcbd5173dd6666344d5abc51f7c36",
+  "image_sha256": "4c15a0e07a90478220df4f402efb1cbc0e5e6c19b9da2ec795c67f956427adb8",
+  "compiled_at": "2026-10-13T14:12:28.015718+00:00",
   "target": "esp32s3"
 }

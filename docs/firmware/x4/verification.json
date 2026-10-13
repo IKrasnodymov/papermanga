@@ -2,8 +2,8 @@
   "device": "x4",
   "hardware_tested": false,
   "built": true,
-  "source_sha256": "7535cfc0ddeee6ff4db1dfb64f413ebbc0ebf7cd8dd1ebcf31d9d806a44dad91",
-  "image_sha256": "9e9fb7ece04254cb6b5041778caddbc96b148a909c6ef65c5ccaa7a8d7e68b87",
-  "compiled_at": "2026-10-13T12:25:58.375714+00:00",
+  "source_sha256": "7776a873bb38da221f06f3f223851b48c5ddcbd5173dd6666344d5abc51f7c36",
+  "image_sha256": "f65cbc9b4bb2bbdafc85da60f14deabf4e28e288ffe61ad3d8ecfd48b1f1f59d",
+  "compiled_at": "2026-10-13T14:23:11.564649+00:00",
   "target": "esp32c3"
 }

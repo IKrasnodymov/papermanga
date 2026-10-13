@@ -1,4 +1,4 @@
-# PaperManga 0.5.0 for Read Pico
+# PaperManga 0.5.1 for Read Pico
 
 Not tested on a device. Uses the vendor BSP and the VCOM stored in the PMU. Only the Read Pico with the 1216×684 screen.
 

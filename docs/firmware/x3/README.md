@@ -1,4 +1,4 @@
-# PaperManga 0.5.0 for Xteink X3
+# PaperManga 0.5.1 for Xteink X3
 
 Not tested on a device. Lite black-and-white version: a computer prepares the chapters. The UC8253/UC8279d panels still need testing.
 

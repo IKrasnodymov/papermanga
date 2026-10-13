@@ -1,4 +1,4 @@
-# PaperManga 0.5.0 for LilyGO T5 E-Paper S3 Pro
+# PaperManga 0.5.1 for LilyGO T5 E-Paper S3 Pro
 
 Not tested on a device. Only the T5 S3 Pro with ED047TC1, TPS65185 and PCA9535; other T5 boards are not compatible.
 

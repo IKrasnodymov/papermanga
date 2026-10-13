@@ -1,4 +1,4 @@
-# PaperManga 0.5.0 for M5Paper v1.1
+# PaperManga 0.5.1 for M5Paper v1.1
 
 Not tested on a device. Classic ESP32 with IT8951. This is not the PaperS3. Chapters are sent over Wi-Fi or on the memory card.
 

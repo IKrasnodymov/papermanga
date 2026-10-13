@@ -2,8 +2,8 @@
   "device": "papermono",
   "hardware_tested": false,
   "built": true,
-  "source_sha256": "7535cfc0ddeee6ff4db1dfb64f413ebbc0ebf7cd8dd1ebcf31d9d806a44dad91",
-  "image_sha256": "7ff362ab9de54bf0a9afd450379327a6c6b9f082d4e61bbf66437f2fc3522427",
-  "compiled_at": "2026-10-13T12:16:57.400380+00:00",
+  "source_sha256": "7776a873bb38da221f06f3f223851b48c5ddcbd5173dd6666344d5abc51f7c36",
+  "image_sha256": "03ee0cf40473ea5ce1f9dacbca89fe581b5341306457e6d5219bfca76e2489b9",
+  "compiled_at": "2026-10-13T14:06:38.742106+00:00",
   "target": "esp32s3"
 }

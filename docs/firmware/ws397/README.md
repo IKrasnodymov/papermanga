@@ -1,4 +1,4 @@
-# PaperManga 0.5.0 for Waveshare ESP32-S3-ePaper-3.97
+# PaperManga 0.5.1 for Waveshare ESP32-S3-ePaper-3.97
 
 Not tested on a device. The profile targets the AXP2101; the vendor docs also describe a TG28. Check which power controller your board has.
 

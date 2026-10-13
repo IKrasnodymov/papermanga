@@ -1,4 +1,4 @@
-# PaperManga 0.5.0 for Xteink X4 Pro Developer Edition
+# PaperManga 0.5.1 for Xteink X4 Pro Developer Edition
 
 Not tested on a device. SSD1677, UC8179 and UC8279 are chosen by the hardware profile. Requires the Developer Edition.
 

@@ -2,8 +2,8 @@
   "device": "sticky",
   "hardware_tested": false,
   "built": true,
-  "source_sha256": "7535cfc0ddeee6ff4db1dfb64f413ebbc0ebf7cd8dd1ebcf31d9d806a44dad91",
-  "image_sha256": "f5562d307ad5dd55702135d9d113ac38e0a970ac8f75e4dfda8634e59d3c5ac5",
-  "compiled_at": "2026-10-13T12:15:55.072478+00:00",
+  "source_sha256": "7776a873bb38da221f06f3f223851b48c5ddcbd5173dd6666344d5abc51f7c36",
+  "image_sha256": "ef466e5c847f28db71fc03c39a29a4b89020f1fcb079aed819e00d2fc595be76",
+  "compiled_at": "2026-10-13T14:04:05.176563+00:00",
   "target": "esp32s3"
 }

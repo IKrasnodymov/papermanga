@@ -1,4 +1,4 @@
-# PaperManga 0.5.0 for Xteink X4 Classic
+# PaperManga 0.5.1 for Xteink X4 Classic
 
 Tested on our X4 Classic with UC8279. Other panels and hardware revisions are not tested.
 

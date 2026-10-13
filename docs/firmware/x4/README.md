@@ -1,4 +1,4 @@
-# PaperManga 0.5.0 for Xteink X4 ESP32-C3
+# PaperManga 0.5.1 for Xteink X4 ESP32-C3
 
 Not tested on a device. Lite black-and-white version: a computer prepares the chapters. This is the older X4, not the X4 Classic.
 

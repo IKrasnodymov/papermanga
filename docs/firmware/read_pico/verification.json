@@ -2,8 +2,8 @@
   "device": "read_pico",
   "hardware_tested": false,
   "built": true,
-  "source_sha256": "7535cfc0ddeee6ff4db1dfb64f413ebbc0ebf7cd8dd1ebcf31d9d806a44dad91",
-  "image_sha256": "ba0da62fc7926f5614c3908e9b46c98de6948f235d0f8ffc91ad1de4484a3d2d",
-  "compiled_at": "2026-10-13T12:20:05.143551+00:00",
+  "source_sha256": "7776a873bb38da221f06f3f223851b48c5ddcbd5173dd6666344d5abc51f7c36",
+  "image_sha256": "d06f8c73979bb108533dff184242283df5692674e5d1b9c132681acc75daa13d",
+  "compiled_at": "2026-10-13T14:13:28.319724+00:00",
   "target": "esp32s3"
 }

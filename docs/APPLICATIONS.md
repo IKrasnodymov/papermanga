@@ -1,8 +1,8 @@
-# PaperManga 0.5.0: Kobo, PocketBook and Android
+# PaperManga 0.5.1: Kobo, PocketBook and Android
 
 **All three applications are experimental and have not been tested on physical devices.** Builds, tests of the shared core and emulator runs do not prove that touch, E Ink, sleep and battery work on a given model. ESP32 firmware is installed separately from the [PaperManga website](https://ikrasnodymov.github.io/papermanga/).
 
-[Release 0.5.0 files](https://github.com/IKrasnodymov/papermanga/releases/tag/v0.5.0) · [Checksums and statuses](https://github.com/IKrasnodymov/papermanga/releases/download/v0.5.0/apps.json)
+[Release 0.5.1 files](https://github.com/IKrasnodymov/papermanga/releases/tag/v0.5.1) · [Checksums and statuses](https://github.com/IKrasnodymov/papermanga/releases/download/v0.5.1/apps.json)
 
 | Application | First build targets | Software checks | Tested on a device |
 |---|---|---|---|
@@ -15,7 +15,7 @@ PocketBook devices running Android use the APK. ARM64 Linux readers, including t
 ## Kobo
 
 1. Install [NickelMenu following its authors' instructions](https://github.com/pgaskin/NickelMenu). NickelMenu is not included in the PaperManga package.
-2. Unzip `papermanga-kobo-0.5.0.zip` **to the root of the Kobo USB drive**, including the hidden `.adds` folder. You get `.adds/papermanga/` and `.adds/nm/papermanga`.
+2. Unzip `papermanga-kobo-0.5.1.zip` **to the root of the Kobo USB drive**, including the hidden `.adds` folder. You get `.adds/papermanga/` and `.adds/nm/papermanga`.
 3. Turn on Wi-Fi in the stock settings, eject USB safely and start **PaperManga (experimental)** from NickelMenu.
 4. Put your own XTC / XTCH in `.adds/papermanga/data/Manga/`. For the Mac server, set `server=http://computer-address:8794` in `.adds/papermanga/app.conf`.
 
@@ -25,7 +25,7 @@ While you read, the launcher pauses Nickel and resumes it after exit, an error o
 
 ## PocketBook
 
-1. Unzip `papermanga-pocketbook-0.5.0.zip` **to the root of the PocketBook USB drive**. `PaperManga.app` and a `papermanga/` folder appear in `applications/`.
+1. Unzip `papermanga-pocketbook-0.5.1.zip` **to the root of the PocketBook USB drive**. `PaperManga.app` and a `papermanga/` folder appear in `applications/`.
 2. Put XTC / XTCH in the `papermanga/Manga/` folder at the root of the drive. You can use subfolders for series.
 3. Eject USB safely. Open **PaperManga** in the stock **"Applications"** section.
 4. Wi-Fi is turned on in the stock settings. Set the Mac server address with the **"Network"** button in the top bar, using the InkView keyboard; you can also put the address on one line in `applications/papermanga/server.txt`.
@@ -36,7 +36,7 @@ Progress and settings are in `papermanga/.papermanga/`, the log in `applications
 
 ## Android
 
-1. Download `papermanga-android-0.5.0.apk` from the release or the website and open it on the device. Allow installs for the browser or file manager you open the APK with.
+1. Download `papermanga-android-0.5.1.apk` from the release or the website and open it on the device. Allow installs for the browser or file manager you open the APK with.
 2. In **⋮ → "Import XTC / XTCH"**, pick a book with the system file manager. The book is copied into the app's own library; no access to the whole storage is needed.
 3. Turn pages by tapping the edges, swiping or with the volume keys. The center of the page opens the reading menu. Your place is saved when the app is minimized or closed.
 4. The Mac server address is under **⋮ → "Server and MangaLib"**. Updates install as a new APK over the app, with the same signature.
@@ -53,6 +53,6 @@ Top bar: **Home, Library, Catalog, History, Network, Exit**. Cards and rows are 
 
 ## Dependencies and sources
 
-`papermanga-apps-0.5.0-third-party.zip` holds the sources and licenses of the bundled third-party components, including the full FBInk with its nested dependencies and the build recipe. FBInk runs as a separate program. InkView comes from the stock system. The PaperManga app sources stay in a private repository; install packages, instructions and test statuses are published openly.
+`papermanga-apps-0.5.1-third-party.zip` holds the sources and licenses of the bundled third-party components, including the full FBInk with its nested dependencies and the build recipe. FBInk runs as a separate program. InkView comes from the stock system. The PaperManga app sources stay in a private repository; install packages, instructions and test statuses are published openly.
 
 Main sources: [PocketBook SDK](https://github.com/pocketbook/SDK_6.3.0/tree/6.5), [FBInk](https://github.com/NiLuJe/FBInk), [KOReader toolchains](https://github.com/koreader/koxtoolchain), [Android: system document picker](https://developer.android.com/training/data-storage/shared/documents-files).

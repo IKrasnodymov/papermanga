@@ -1,4 +1,4 @@
-# PaperManga 0.5.0 for M5Stack Paper Mono
+# PaperManga 0.5.1 for M5Stack Paper Mono
 
 Not tested on a device. FT6336G touch, front light and power via M5PM1. Grey tone quality still needs checking.
 

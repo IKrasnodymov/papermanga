@@ -2,8 +2,8 @@
   "device": "picco",
   "hardware_tested": false,
   "built": true,
-  "source_sha256": "7535cfc0ddeee6ff4db1dfb64f413ebbc0ebf7cd8dd1ebcf31d9d806a44dad91",
-  "image_sha256": "89dab88985859322369b31e523bb324ca58107b461a556ec587f41b17eae6133",
-  "compiled_at": "2026-10-13T12:22:39.005717+00:00",
+  "source_sha256": "7776a873bb38da221f06f3f223851b48c5ddcbd5173dd6666344d5abc51f7c36",
+  "image_sha256": "05dbd8bbeb1c8b49666b22169237f7fdc0ed31df88c2dc97b5e1ed6b60c5d9fd",
+  "compiled_at": "2026-10-13T14:17:43.771545+00:00",
   "target": "esp32s3"
 }

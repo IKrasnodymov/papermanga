@@ -1,4 +1,4 @@
-# PaperManga 0.5.0 for M5Stack PaperS3
+# PaperManga 0.5.1 for M5Stack PaperS3
 
 Not tested on a device. Touch navigation, ED047TC1 panel. Features depend on the board revision.
 

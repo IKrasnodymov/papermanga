@@ -1,4 +1,4 @@
-# PaperManga 0.5.0 for Inkplate 6
+# PaperManga 0.5.1 for Inkplate 6
 
 Not tested on a device. Only the Inkplate 6 800×600 on ESP32-WROVER; the 6 Plus and 6 Motion are not compatible.
 

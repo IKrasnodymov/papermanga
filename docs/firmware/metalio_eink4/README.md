@@ -1,4 +1,4 @@
-# PaperManga 0.5.0 for Metalio E-Ink 4
+# PaperManga 0.5.1 for Metalio E-Ink 4
 
 Not tested on a device. Only the E-Ink 4 3.97″; the E-Ink 4 Plus is not compatible. The vendor's sources disagree on some pin assignments.
 

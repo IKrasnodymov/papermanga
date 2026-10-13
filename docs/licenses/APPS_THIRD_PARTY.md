@@ -1,4 +1,4 @@
-# PaperManga applications 0.5.0 third-party notices
+# PaperManga applications 0.5.1 third-party notices
 
 FBInk © NiLuJe and contributors, GPL-3.0-or-later: invoked as a standalone CLI, never linked into the proprietary PaperManga executable. Its complete source, submodules, licenses and build recipe are in the third-party archive. It incorporates component-specific GPL/LGPL/MIT/public-domain sources; their original notices are retained.
 
