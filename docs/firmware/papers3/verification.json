@@ -1,0 +1,9 @@
+{
+  "device": "papers3",
+  "hardware_tested": false,
+  "built": true,
+  "source_sha256": "06e4e03acfcd7b86bd2d6359e74ae3de05128c271eb1f77749179c714646123c",
+  "image_sha256": "987bed2ca58191886c286f9233ce1d568bab536c6443c8f3602a306587a0fbfd",
+  "compiled_at": "2026-10-13T06:08:50.391929+00:00",
+  "target": "esp32s3"
+}

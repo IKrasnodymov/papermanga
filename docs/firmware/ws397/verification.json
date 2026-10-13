@@ -1,0 +1,9 @@
+{
+  "device": "ws397",
+  "hardware_tested": false,
+  "built": true,
+  "source_sha256": "06e4e03acfcd7b86bd2d6359e74ae3de05128c271eb1f77749179c714646123c",
+  "image_sha256": "ee31d7a44aae7873d7508ba5e036d3502ebdd03b0b17714949a0d1222451daec",
+  "compiled_at": "2026-10-13T06:10:38.123698+00:00",
+  "target": "esp32s3"
+}

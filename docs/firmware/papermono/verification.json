@@ -1,0 +1,9 @@
+{
+  "device": "papermono",
+  "hardware_tested": false,
+  "built": true,
+  "source_sha256": "06e4e03acfcd7b86bd2d6359e74ae3de05128c271eb1f77749179c714646123c",
+  "image_sha256": "c9ce3b4ae84c03043f86bbc9cd9642638541071c67931f2e2eb5f7bd22c41fc3",
+  "compiled_at": "2026-10-13T06:09:32.086258+00:00",
+  "target": "esp32s3"
+}

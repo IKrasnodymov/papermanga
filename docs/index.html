@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PaperManga — манга на Xteink X4 Classic без компьютера</title>
-<meta name="description" content="PaperManga — бесплатная прошивка для Xteink X4 Classic: читалка сама находит мангу на MangaDex и MangaLib, скачивает главы и подгоняет их под экран.">
+<title>PaperManga — прошивки для читалок ESP32</title>
+<meta name="description" content="PaperManga: манга на читалках ESP32. Выбор модели, статус проверки и установка прошивки прямо из браузера.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -117,6 +117,14 @@
   .warn ul { padding-left: 1.2em; margin: 14px 0 0; }
   .warn li { margin: 8px 0; }
   esp-web-install-button { display: inline-block; margin-top: 8px; }
+  esp-web-install-button[hidden] { display:none; }
+  .device-choice { display:block; width:100%; min-width:0; font:600 16px Inter,sans-serif; padding:12px; margin:10px 0 18px; border:3px solid var(--ink); background:white; }
+  .validation { padding:14px 16px; border:3px solid var(--accent); background:#fff4f1; margin:14px 0; }
+  .validation.tested { border-color:#286443; background:#edf6ef; }
+  .validation strong { display:block; margin-bottom:5px; }
+  .model-confirm { display:flex; gap:10px; align-items:flex-start; margin:18px 0; font-size:15px; }
+  .model-confirm input { width:20px; height:20px; flex-shrink:0; }
+  .device-download { font-size:15px; }
   @media (max-width: 860px) { .install { grid-template-columns: 1fr; } }
 
   .faq { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -147,15 +155,15 @@
   <div class="speedbg speed"></div>
   <div class="wrap">
     <div>
-      <span class="stamp">Прошивка для Xteink X4 Classic</span>
+      <span class="stamp">Прошивки для читалок ESP32</span>
       <h1 class="display">Манга на e‑ink. <em>Без&nbsp;компьютера.</em></h1>
       <p class="lead">PaperManga сама находит мангу в интернете, скачивает главы и подгоняет страницы под экран читалки.
-        Компьютер нужен один раз — чтобы установить прошивку.</p>
+        На моделях с PSRAM главы можно готовить прямо на читалке. Для старых X4 и X3 главы готовит компьютер.</p>
       <div class="cta">
         <a class="btn" href="#install">Установить</a>
         <a class="btn ghost" href="#how">Как это работает</a>
       </div>
-      <p class="meta">Бесплатно · версия 0.2.5 · CrossPoint остаётся на читалке</p>
+      <p class="meta">Бесплатно · новые порты 0.3.0 · проверенный вариант X4 Classic доступен отдельно</p>
     </div>
     <div class="devices">
       <div class="device back"><img src="shots/page.png" alt="Страница манги на читалке"></div>
@@ -167,14 +175,14 @@
 <section id="how">
   <div class="wrap">
     <h2 class="section display">Три шага до первой главы</h2>
-    <p class="sub">Дальше всё происходит на самой читалке.</p>
+    <p class="sub">На моделях с PSRAM каталог и подготовка глав работают на самой читалке.</p>
     <div class="features">
       <div class="feature panel"><span class="stamp num">01</span><h3>Установи</h3><p>Подключи читалку к компьютеру
         и нажми кнопку в разделе <a href="#install">«Установка»</a>. Это займёт пару минут.</p></div>
       <div class="feature panel"><span class="stamp num">02</span><h3>Подключи Wi‑Fi</h3><p>Открой «Wi‑Fi» на читалке.
-        Она создаст свою сеть: зайди в неё с телефона и введи пароль от домашнего Wi‑Fi. Сети из CrossPoint подхватятся сами.</p></div>
+        Она создаст свою сеть: зайди в неё с телефона и введи пароль от домашнего Wi‑Fi. На X4 Classic сети из CrossPoint подхватятся сами.</p></div>
       <div class="feature panel"><span class="stamp num">03</span><h3>Найди и читай</h3><p>Открой «Каталог», найди мангу
-        и выбери главу. Через минуту она появится на полке.</p></div>
+        и выбери главу. На старых X4 и X3 подготовь ч/б XTC в приложении на компьютере и отправь по Wi‑Fi или через карту.</p></div>
     </div>
   </div>
 </section>
@@ -237,27 +245,33 @@
     <p class="sub">Понадобится компьютер с браузером Chrome или Edge и USB‑кабель, который передаёт данные, а не только заряжает.</p>
     <div class="install">
       <div class="panel">
-        <span class="stamp">Версия 0.2.5</span>
+        <label for="firmware-device"><b>Выбери точную модель</b></label>
+        <select id="firmware-device" class="device-choice" disabled aria-describedby="device-validation"><option>Загружаю список прошивок…</option></select>
+        <div id="device-validation" class="validation" role="status"><strong>Проверяю доступные сборки</strong></div>
+        <p id="device-features" class="meta"></p>
+        <label class="model-confirm"><input type="checkbox" id="confirm-model" disabled><span>Выбранная модель и аппаратная версия совпадают с моей читалкой. Я прочитал статус проверки.</span></label>
         <ol>
           <li>Подключи читалку к компьютеру и включи её.</li>
-          <li>Нажми кнопку ниже и выбери в списке «USB JTAG/serial debug unit» — так называется читалка.</li>
+          <li>Нажми кнопку ниже и выбери USB-порт читалки. Название зависит от модели.</li>
           <li>В окне «Erase device» <b>не ставь галочку</b> и нажми «Next», затем «Install».
             Примерно через пару минут читалка перезагрузится уже с PaperManga.</li>
         </ol>
-        <esp-web-install-button manifest="firmware/manifest.json">
-          <button slot="activate" class="btn">Установить на читалку</button>
+        <esp-web-install-button id="firmware-installer" hidden>
+          <button slot="activate" class="btn" id="install-firmware" disabled>Установить выбранную прошивку</button>
           <span slot="unsupported"><b>Открой страницу в Chrome или Edge на компьютере:</b> этот браузер не умеет работать с USB.</span>
           <span slot="not-allowed">Страница должна открываться по HTTPS.</span>
         </esp-web-install-button>
+        <p class="device-download"><a id="firmware-download" hidden>Скачать образ приложения</a> · <a href="https://github.com/IKrasnodymov/papermanga/releases">Все выпуски и файлы установки</a></p>
       </div>
       <div class="panel warn">
         <span class="stamp">Перед установкой</span>
         <ul>
-          <li>Подходит только для <b>X4 Classic</b>. На обычную X4 установщик ничего не запишет.</li>
-          <li>Книги, настройки и заводская калибровка экрана сохранятся, если не ставить галочку «Erase device».</li>
+          <li>Браузер проверяет семейство процессора, но не модель платы. Поэтому выбор модели нужно сверить вручную.</li>
+          <li>На нашем <b>X4 Classic с UC8279</b> работа проверена. Остальные варианты экспериментальные: они собраны, но на устройствах не проверены.</li>
+          <li>Сохрани резервную копию заводской прошивки перед экспериментальной установкой. Не включай «Erase device»: она удалит настройки и калибровку. Карта памяти не форматируется.</li>
           <li>Не закрывай страницу и не отключай кабель, пока идёт установка.</li>
           <li>Если браузер не видит читалку, возможно, продавец закрыл прошивку. Не обходи это сторонними программами.</li>
-          <li>Вернуть заводскую прошивку можно на <a href="https://crosspointreader.com/#flash-tools">crosspointreader.com</a>.</li>
+          <li>Для восстановления нужна прошивка именно своей модели. CrossPoint можно установить через <a href="https://crosspointreader.com/#flash-tools">его сайт</a>, если устройство поддерживается.</li>
         </ul>
       </div>
     </div>
@@ -268,12 +282,15 @@
   <div class="wrap">
     <h2 class="section display">Вопросы</h2>
     <div class="faq">
-      <div class="panel"><h3>Куда денется CrossPoint?</h3><p>Никуда: он остаётся на читалке рядом с PaperManga.
-        Переключиться можно из меню любой из них или удерживая «Назад» при включении.</p></div>
+      <div class="panel"><h3>Куда денется CrossPoint?</h3><p>В проверенном варианте X4 Classic он остаётся рядом с PaperManga.
+        Экспериментальные порты 0.3 используют самостоятельную PaperManga и собственные обновления.</p></div>
       <div class="panel"><h3>Как войти в MangaLib?</h3><p>Подключи читалку к Wi‑Fi и открой «Wi‑Fi» на главном экране.
         Там будет адрес — открой его в браузере телефона и войди в свой аккаунт.</p></div>
-      <div class="panel"><h3>Как обновить прошивку?</h3><p>Открой «Инфо» и нажми «Проверить». Новая версия скачается по Wi‑Fi,
-        компьютер не нужен.</p></div>
+      <div class="panel"><h3>Как обновить прошивку?</h3><p>Открой «Инфо» и нажми «Проверить». Обновление выбирается для конкретной платы.
+        Inkplate 6 с 4 МБ flash обновляется через этот сайт по USB.</p></div>
+      <div class="panel"><h3>Что умеют X3 и старый X4?</h3><p>Облегчённая версия читает ч/б XTC. Главы нужно подготовить в приложении на компьютере и передать по Wi‑Fi или на карту.</p></div>
+      <div class="panel"><h3>Как управлять через сенсор?</h3><p>В меню свайпы перемещают выбор, касание выбирает пункт. Нижняя панель — «Назад», ◀, ▶ и «Открыть».
+        В читалке касания по краям листают, в центре открывают меню. Долгое касание — назад; удержание «Открыть» на нижней панели вызывает действие удержания.</p></div>
       <div class="panel"><h3>Откуда берётся манга?</h3><p>Из сервисов, которые ты подключаешь сам: MangaDex и MangaLib.
         PaperManga ничего не хранит и не распространяет. Права на мангу принадлежат авторам и издателям.</p></div>
     </div>
@@ -282,10 +299,11 @@
 
 <footer>
   <div class="wrap">
-    <div><b class="kanji-inline">漫</b> <b class="display">PaperManga</b> · версия 0.2.5</div>
-    <div><a href="https://github.com/IKrasnodymov/papermanga">GitHub</a> · CrossPoint — проект сообщества, лицензия MIT</div>
+    <div><b class="kanji-inline">漫</b> <b class="display">PaperManga</b> · версия 0.3.0</div>
+    <div><a href="https://github.com/IKrasnodymov/papermanga">GitHub</a> · <a href="licenses/THIRD_PARTY.md">Библиотеки и лицензии</a></div>
   </div>
 </footer>
 
+<script src="devices.js" defer></script>
 </body>
 </html>

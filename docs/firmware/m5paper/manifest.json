@@ -1,0 +1,28 @@
+{
+  "name": "PaperManga — M5Paper v1.1",
+  "version": "0.3.0",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        {
+          "path": "bootloader.bin",
+          "offset": 4096
+        },
+        {
+          "path": "partition-table.bin",
+          "offset": 32768
+        },
+        {
+          "path": "ota_data_initial.bin",
+          "offset": 57344
+        },
+        {
+          "path": "papermanga-m5paper.bin",
+          "offset": 65536
+        }
+      ]
+    }
+  ]
+}

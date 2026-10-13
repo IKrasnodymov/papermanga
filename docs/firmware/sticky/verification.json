@@ -1,0 +1,9 @@
+{
+  "device": "sticky",
+  "hardware_tested": false,
+  "built": true,
+  "source_sha256": "06e4e03acfcd7b86bd2d6359e74ae3de05128c271eb1f77749179c714646123c",
+  "image_sha256": "95481bad9f64163598e7da94a7965df3850d584f11371a567e9b4c19f7e807e8",
+  "compiled_at": "2026-10-13T06:09:09.545442+00:00",
+  "target": "esp32s3"
+}

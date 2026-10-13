@@ -1,0 +1,24 @@
+{
+  "name": "PaperManga — Xteink X4 Classic",
+  "version": "0.2.5",
+  "new_install_prompt_erase": true,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        {
+          "path": "otadata-papermanga.bin",
+          "offset": 57344
+        },
+        {
+          "path": "crosspoint-manga-x4c.bin",
+          "offset": 65536
+        },
+        {
+          "path": "papermanga.bin",
+          "offset": 8323072
+        }
+      ]
+    }
+  ]
+}

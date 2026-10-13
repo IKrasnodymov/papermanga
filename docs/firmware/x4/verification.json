@@ -1,0 +1,9 @@
+{
+  "device": "x4",
+  "hardware_tested": false,
+  "built": true,
+  "source_sha256": "06e4e03acfcd7b86bd2d6359e74ae3de05128c271eb1f77749179c714646123c",
+  "image_sha256": "dc9894814716d99af7480125f0d4595338c4e7aa65a4f3cdfebffab9ef5412f0",
+  "compiled_at": "2026-10-13T06:12:33.656918+00:00",
+  "target": "esp32c3"
+}

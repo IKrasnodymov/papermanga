@@ -1,0 +1,9 @@
+{
+  "device": "m5paper",
+  "hardware_tested": false,
+  "built": true,
+  "source_sha256": "06e4e03acfcd7b86bd2d6359e74ae3de05128c271eb1f77749179c714646123c",
+  "image_sha256": "6eb51d18b1fceb5476942896c4134153dc5eb7e29a25ebad2e572a72c8fc09f2",
+  "compiled_at": "2026-10-13T06:11:56.528850+00:00",
+  "target": "esp32"
+}
