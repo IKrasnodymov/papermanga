@@ -1,0 +1,57 @@
+{
+  "version": "0.4.0",
+  "hardware_tested": false,
+  "source_sha256": "942a1474acbe7314541f4dbbb022299d2854b268b49df49a41ac37300428c032",
+  "verified_at": "2026-10-13T10:45:11.067106+00:00",
+  "checks": {
+    "python_regressions": {
+      "passed": 49
+    },
+    "firmware_host_ctest": {
+      "passed": 3
+    },
+    "application_host_ctest": {
+      "passed": 1
+    },
+    "arm_runtime_qemu": [
+      "kobo (Debian armhf userspace)",
+      "pocketbook (official SDK userspace)"
+    ],
+    "native_network": [
+      "query array parameters",
+      "headers",
+      "POST JSON quoting",
+      "image conversion and XTCH readback",
+      "TLS to MangaDex API with bundled CA certificates"
+    ],
+    "pocketbook_sdk_abi": [
+      "bitmap allocation and drawing",
+      "touch",
+      "Prev/Next/OK keys",
+      "hide/show",
+      "exit"
+    ],
+    "android": {
+      "abis_built": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86_64"
+      ],
+      "runtime_tested": "arm64 emulator / Android 36.1 / emulator 37.2.12",
+      "checks": [
+        "signed release APK installed and launched",
+        "SAF file import",
+        "Unicode filename import",
+        "volume page keys",
+        "saved reading position after background and restart"
+      ],
+      "apk_sha256": "3dc97b0546200c5aecdcbdab6228d7219a4623af8fd18bdcb4636fe7881fc631"
+    },
+    "esp32c3_compilation": "passed; resulting firmware not published"
+  },
+  "limitations": [
+    "No physical Kobo, PocketBook or Android device was tested",
+    "E Ink refresh, touch calibration, sleep and battery require real-device validation",
+    "Linux applications in this release are ARM32 only"
+  ]
+}

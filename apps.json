@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "version": "0.4.0",
+  "hardware_tested": false,
+  "applications": [
+    {
+      "id": "kobo",
+      "version": "0.4.0",
+      "built": true,
+      "hardware_tested": false,
+      "abi": "ARM32 hard-float",
+      "file": "papermanga-kobo-0.4.0.zip",
+      "url": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.4.0/papermanga-kobo-0.4.0.zip",
+      "size": 3275878,
+      "sha256": "754a3fb5dc04097f7badd00cf3e68fdedcb940a380e38e4027d0f6a605903730",
+      "verification": {
+        "platform": "kobo",
+        "version": "0.4.0",
+        "built": true,
+        "hardware_tested": false,
+        "source_sha256": "942a1474acbe7314541f4dbbb022299d2854b268b49df49a41ac37300428c032",
+        "compiler": "arm-kobo-linux-gnueabihf-g++ (crosstool-NG UNKNOWN - NiLuJe) 14.4.0",
+        "built_at": "2026-10-13T10:39:28.573717+00:00",
+        "files": {
+          "papermanga": {
+            "size": 1180140,
+            "sha256": "09d43114c806b984fd697ba4002e44374c1ade677098f95773267c175c19f89f"
+          },
+          "curl": {
+            "size": 3682636,
+            "sha256": "7a4c450198d83185f2050e2abc4effb9b56fdd2da66743ff3bcfc9a47b777696"
+          },
+          "fbink": {
+            "size": 296904,
+            "sha256": "5a3154f09ee27916ac4f8e7512b0b17a8605227c155081570c9bd97bb6fa0eae"
+          }
+        }
+      }
+    },
+    {
+      "id": "pocketbook",
+      "version": "0.4.0",
+      "built": true,
+      "hardware_tested": false,
+      "abi": "ARM32 EABI",
+      "file": "papermanga-pocketbook-0.4.0.zip",
+      "url": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.4.0/papermanga-pocketbook-0.4.0.zip",
+      "size": 3034347,
+      "sha256": "282d17ae9c00a6096d2cdc27c3afc22087268ff912682094c296f6f0916f1abf",
+      "verification": {
+        "platform": "pocketbook",
+        "version": "0.4.0",
+        "built": true,
+        "hardware_tested": false,
+        "source_sha256": "942a1474acbe7314541f4dbbb022299d2854b268b49df49a41ac37300428c032",
+        "compiler": "arm-pocketbook-linux-gnueabi-g++ (crosstool-NG UNKNOWN - NiLuJe) 14.4.0",
+        "built_at": "2026-10-13T10:39:32.597592+00:00",
+        "files": {
+          "papermanga": {
+            "size": 916012,
+            "sha256": "a068655daa2a9b8e50efc764bcc391e69012c631cd375ad112d0ce00217fb366"
+          },
+          "curl": {
+            "size": 4763976,
+            "sha256": "7df791751b86e73c92f2439cf99e22aa37129da204f784c786010e8c3fe77197"
+          }
+        }
+      }
+    },
+    {
+      "id": "android",
+      "version": "0.4.0",
+      "built": true,
+      "hardware_tested": false,
+      "min_android": 7,
+      "abis": [
+        "arm64-v8a",
+        "armeabi-v7a",
+        "x86_64"
+      ],
+      "file": "papermanga-android-0.4.0.apk",
+      "url": "https://github.com/IKrasnodymov/papermanga/releases/download/v0.4.0/papermanga-android-0.4.0.apk",
+      "size": 3029917,
+      "sha256": "3dc97b0546200c5aecdcbdab6228d7219a4623af8fd18bdcb4636fe7881fc631",
+      "verification": {
+        "platform": "android",
+        "version": "0.4.0",
+        "built": true,
+        "hardware_tested": false,
+        "source_sha256": "942a1474acbe7314541f4dbbb022299d2854b268b49df49a41ac37300428c032",
+        "compiler": "AGP 8.9.2 / Gradle 8.12 / Android NDK 27.0.12077973 (Clang 18)",
+        "built_at": "2026-10-13T10:39:37.251786+00:00",
+        "files": {
+          "app-release.apk": {
+            "size": 3029917,
+            "sha256": "3dc97b0546200c5aecdcbdab6228d7219a4623af8fd18bdcb4636fe7881fc631"
+          }
+        }
+      }
+    }
+  ]
+}

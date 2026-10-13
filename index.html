@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PaperManga — ESP32, Kobo, PocketBook и Android</title>
+<meta name="description" content="PaperManga: прошивки ESP32 и приложения для Kobo, PocketBook и Android. Статусы проверки, установка по USB и загрузка приложений.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+<style>
+  :root { --ink: #111; --paper: #fff; --tone: #d9d9d9; --accent: #d32f2f; }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font: 17px/1.55 Inter, -apple-system, "Segoe UI", sans-serif; color: var(--ink); background: var(--paper); }
+  a { color: inherit; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  .display { font-family: "Dela Gothic One", Inter, sans-serif; font-weight: 400; letter-spacing: .01em; }
+
+  /* Header */
+  header.top { position: sticky; top: 0; z-index: 10; background: var(--paper); border-bottom: 4px solid var(--ink); }
+  header.top .wrap { display: flex; align-items: center; gap: 24px; height: 64px; }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-size: 22px; }
+  .logo .kanji, .kanji-inline { font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic",
+                 sans-serif; font-weight: 800; }
+  .logo .kanji { background: var(--ink); color: var(--paper); width: 38px; height: 38px; display: grid; place-items: center;
+                 font-size: 24px; transform: skew(-8deg); }
+  nav.links { margin-left: auto; display: flex; gap: 22px; font-weight: 600; font-size: 15px; }
+  nav.links a { text-decoration: none; }
+  nav.links a:hover { text-decoration: underline 3px; }
+  @media (max-width: 760px) { nav.links { display: none; } }
+
+  /* Comic panels */
+  .panel { background: var(--paper); border: 4px solid var(--ink); box-shadow: 8px 8px 0 var(--ink); }
+  .tone { background-image: radial-gradient(var(--ink) 1.1px, transparent 1.3px); background-size: 9px 9px; }
+  .speed { background: repeating-conic-gradient(from 0deg at 72% 46%, var(--ink) 0deg .55deg, transparent .55deg 5deg); }
+  .stamp { display: inline-block; background: var(--ink); color: var(--paper); font-weight: 800; font-size: 13px;
+           letter-spacing: .08em; padding: 4px 10px; text-transform: uppercase; }
+
+  /* Hero */
+  .hero { position: relative; overflow: hidden; border-bottom: 4px solid var(--ink); }
+  .hero::before { content: ""; position: absolute; inset: 0; opacity: .13; }
+  .hero .speedbg { position: absolute; inset: 0; opacity: .12; }
+  .hero .wrap { position: relative; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 64px; align-items: center;
+                padding-top: 64px; padding-bottom: 72px; }
+  .hero h1 { font-size: clamp(38px, 4vw, 54px); line-height: 1.12; margin: 18px 0 22px; }
+  .hero h1 em { font-style: normal; background: var(--ink); color: var(--paper); padding: .02em .16em .08em;
+                display: inline-block; margin-top: .12em; transform: skew(-4deg); }
+  .hero p.lead { font-size: 20px; max-width: 34em; margin: 0 0 28px; }
+  .cta { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+  .btn { display: inline-block; font: 800 18px Inter, sans-serif; text-decoration: none; cursor: pointer;
+         padding: 16px 26px; border: 4px solid var(--ink); box-shadow: 6px 6px 0 var(--ink); background: var(--ink);
+         color: var(--paper); transition: transform .08s, box-shadow .08s; }
+  .btn:hover { transform: translate(2px, 2px); box-shadow: 4px 4px 0 var(--ink); }
+  .btn.ghost { background: var(--paper); color: var(--ink); }
+  .meta { font-size: 14px; color: #444; margin-top: 18px; }
+  .devices { position: relative; height: 560px; }
+  .device { position: absolute; width: 270px; background: #222; border-radius: 20px; padding: 14px 14px 40px;
+            box-shadow: 10px 10px 0 var(--ink); }
+  .device img { display: block; width: 100%; border-radius: 4px; background: #fff; }
+  .device.back { left: 0; top: 70px; transform: rotate(-7deg); }
+  .device.front { right: 0; top: 0; transform: rotate(4deg); }
+  @media (max-width: 900px) {
+    .hero .wrap { grid-template-columns: minmax(0, 1fr); }
+    .devices { height: 480px; max-width: 520px; }
+    .device { width: 230px; }
+  }
+  @media (max-width: 520px) {
+    .hero h1 { font-size: 34px; }
+    .hero p.lead { font-size: 18px; }
+    .devices { height: 400px; }
+    .device { width: 180px; padding: 10px 10px 28px; }
+  }
+
+  /* Sections */
+  section { padding: 80px 0; }
+  section.alt { background: #f2f2f2; border-top: 4px solid var(--ink); border-bottom: 4px solid var(--ink); }
+  h2.section { font-size: clamp(30px, 4vw, 46px); margin: 0 0 14px; }
+  .sub { font-size: 19px; color: #333; max-width: 46em; margin: 0 0 40px; }
+
+  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .feature { padding: 22px 22px 24px; position: relative; }
+  .feature .num { position: absolute; top: -18px; left: 16px; }
+  .feature h3 { margin: 10px 0 8px; font-size: 22px; }
+  .feature p { margin: 0; color: #222; }
+  @media (max-width: 900px) { .features { grid-template-columns: 1fr; } }
+
+  .show { display: grid; grid-template-columns: 500px 1fr; gap: 48px; align-items: center; margin: 0 0 100px; }
+  .show:last-child { margin-bottom: 0; }
+  .show.flip { grid-template-columns: 1fr 500px; }
+  .show.flip .shot { order: 2; }
+  /* Two readers per story: a big one, and a smaller one tucked in front of its corner. */
+  .shot { position: relative; padding: 0 175px 40px 0; }
+  .show.flip .shot { padding: 0 0 40px 175px; }
+  .shot .device { position: relative; width: 100%; transform: rotate(-2deg); }
+  .shot .device + .device { position: absolute; width: 200px; right: 0; bottom: 0; transform: rotate(5deg); }
+  .show.flip .shot .device { transform: rotate(2deg); }
+  .show.flip .shot .device + .device { right: auto; left: 0; transform: rotate(-5deg); }
+  .show h3 { font-size: clamp(28px, 3.5vw, 40px); margin: 12px 0 14px; line-height: 1.1; }
+  .show p { font-size: 18px; margin: 0 0 12px; }
+  .show ul { padding-left: 1.2em; margin: 0; }
+  .show li { margin: 6px 0; }
+  @media (max-width: 900px) {
+    .show, .show.flip { grid-template-columns: minmax(0, 1fr); gap: 30px; }
+    .show.flip .shot { order: 0; }
+    .shot, .show.flip .shot { max-width: 400px; }
+  }
+
+
+  .install { display: grid; grid-template-columns: 1.1fr .9fr; gap: 32px; align-items: start; }
+  .install .panel { padding: 28px 30px; }
+  .install ol { padding-left: 1.3em; margin: 18px 0 0; }
+  .install li { margin: 8px 0; }
+  .warn { border-color: var(--accent); box-shadow: 8px 8px 0 var(--accent); }
+  .warn .stamp { background: var(--accent); }
+  .warn ul { padding-left: 1.2em; margin: 14px 0 0; }
+  .warn li { margin: 8px 0; }
+  esp-web-install-button { display: inline-block; margin-top: 8px; }
+  esp-web-install-button[hidden] { display:none; }
+  .device-choice { display:block; width:100%; min-width:0; font:600 16px Inter,sans-serif; padding:12px; margin:10px 0 18px; border:3px solid var(--ink); background:white; }
+  .validation { padding:14px 16px; border:3px solid var(--accent); background:#fff4f1; margin:14px 0; }
+  .validation.tested { border-color:#286443; background:#edf6ef; }
+  .validation strong { display:block; margin-bottom:5px; }
+  .model-confirm { display:flex; gap:10px; align-items:flex-start; margin:18px 0; font-size:15px; }
+  .model-confirm input { width:20px; height:20px; flex-shrink:0; }
+  .device-download { font-size:15px; }
+  @media (max-width: 860px) { .install { grid-template-columns: 1fr; } }
+
+  .faq { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .faq .panel { padding: 22px 24px; }
+  .faq h3 { margin: 0 0 8px; font-size: 19px; }
+  .faq p { margin: 0; }
+  @media (max-width: 760px) { .faq { grid-template-columns: 1fr; } }
+
+  footer { border-top: 4px solid var(--ink); padding: 34px 0 48px; font-size: 14px; color: #333; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 18px 40px; justify-content: space-between; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo display" href="#"><span class="kanji">漫</span>PaperManga</a>
+    <nav class="links">
+      <a href="#how">Как это работает</a>
+      <a href="#screens">Возможности</a>
+      <a href="#install">Установка</a>
+      <a href="#applications">Приложения</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="speedbg speed"></div>
+  <div class="wrap">
+    <div>
+      <span class="stamp">Прошивки для читалок ESP32</span>
+      <h1 class="display">Манга на e‑ink. <em>Без&nbsp;компьютера.</em></h1>
+      <p class="lead">PaperManga сама находит мангу в интернете, скачивает главы и подгоняет страницы под экран читалки.
+        На моделях с PSRAM главы можно готовить прямо на читалке. Для старых X4 и X3 главы готовит компьютер.</p>
+      <div class="cta">
+        <a class="btn" href="#install">Установить</a>
+        <a class="btn ghost" href="#how">Как это работает</a>
+      </div>
+      <p class="meta">Бесплатно · новые порты 0.3.0 · проверенный вариант X4 Classic доступен отдельно</p>
+    </div>
+    <div class="devices">
+      <div class="device back"><img src="shots/page.png" alt="Страница манги на читалке"></div>
+      <div class="device front"><img src="shots/home.png" alt="Главный экран PaperManga"></div>
+    </div>
+  </div>
+</div>
+
+<section id="how">
+  <div class="wrap">
+    <h2 class="section display">Три шага до первой главы</h2>
+    <p class="sub">На моделях с PSRAM каталог и подготовка глав работают на самой читалке.</p>
+    <div class="features">
+      <div class="feature panel"><span class="stamp num">01</span><h3>Установи</h3><p>Подключи читалку к компьютеру
+        и нажми кнопку в разделе <a href="#install">«Установка»</a>. Это займёт пару минут.</p></div>
+      <div class="feature panel"><span class="stamp num">02</span><h3>Подключи Wi‑Fi</h3><p>Открой «Wi‑Fi» на читалке.
+        Она создаст свою сеть: зайди в неё с телефона и введи пароль от домашнего Wi‑Fi. На X4 Classic сети из CrossPoint подхватятся сами.</p></div>
+      <div class="feature panel"><span class="stamp num">03</span><h3>Найди и читай</h3><p>Открой «Каталог», найди мангу
+        и выбери главу. На старых X4 и X3 подготовь ч/б XTC в приложении на компьютере и отправь по Wi‑Fi или через карту.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="screens" class="alt">
+  <div class="wrap">
+    <div class="show">
+      <div class="shot">
+        <div class="device"><img src="shots/catalog.png" alt="Каталог"></div>
+        <div class="device"><img src="shots/build.png" alt="Настройки сборки глав"></div>
+      </div>
+      <div>
+        <span class="stamp">Каталог</span>
+        <h3 class="display">Мангу ищешь прямо на читалке</h3>
+        <p>Популярное, новинки и поиск по названию. Выбираешь главу — читалка скачивает её и готовит страницы под экран.</p>
+        <ul>
+          <li>MangaDex — без регистрации.</li>
+          <li>MangaLib — со своим аккаунтом, в том числе 18+.</li>
+          <li>Можно скачать сразу несколько глав и читать без интернета.</li>
+          <li>Длинные ленты манхвы делятся на экраны, развороты — на половины.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="show flip">
+      <div class="shot">
+        <div class="device"><img src="shots/library.png" alt="Полка"></div>
+        <div class="device"><img src="shots/chapters.png" alt="Главы серии"></div>
+      </div>
+      <div>
+        <span class="stamp">Библиотека</span>
+        <h3 class="display">Все серии на одной полке</h3>
+        <p>У каждой серии своя обложка. Новые и прочитанные главы отмечены, а начатая открывается с того же места.</p>
+        <ul>
+          <li>Внизу видно, сколько места осталось на карте.</li>
+          <li>Удалить можно только прочитанные главы или всю серию.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="show">
+      <div class="shot">
+        <div class="device"><img src="shots/page.png" alt="Чтение"></div>
+        <div class="device"><img src="shots/menu.png" alt="Меню чтения"></div>
+      </div>
+      <div>
+        <span class="stamp">Чтение</span>
+        <h3 class="display">На экране — только манга</h3>
+        <p>На нашем X4 Classic с UC8279 проверено быстрое листание без мигания. На других платах скорость и режимы обновления ещё требуют проверки. Часы и номер страницы — по желанию.</p>
+        <ul>
+          <li>Меню по одной кнопке: перемотка, список глав, очистка экрана.</li>
+          <li>В конце главы следующая открывается одним нажатием.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <h2 class="section display">Установка</h2>
+    <p class="sub">Понадобится компьютер с браузером Chrome или Edge и USB‑кабель, который передаёт данные, а не только заряжает.</p>
+    <div class="install">
+      <div class="panel">
+        <label for="firmware-device"><b>Выбери точную модель</b></label>
+        <select id="firmware-device" class="device-choice" disabled aria-describedby="device-validation"><option>Загружаю список прошивок…</option></select>
+        <div id="device-validation" class="validation" role="status"><strong>Проверяю доступные сборки</strong></div>
+        <p id="device-features" class="meta"></p>
+        <label class="model-confirm"><input type="checkbox" id="confirm-model" disabled><span>Выбранная модель и аппаратная версия совпадают с моей читалкой. Я прочитал статус проверки.</span></label>
+        <ol>
+          <li>Подключи читалку к компьютеру и включи её.</li>
+          <li>Нажми кнопку ниже и выбери USB-порт читалки. Название зависит от модели.</li>
+          <li>В окне «Erase device» <b>не ставь галочку</b> и нажми «Next», затем «Install».
+            Примерно через пару минут читалка перезагрузится уже с PaperManga.</li>
+        </ol>
+        <esp-web-install-button id="firmware-installer" hidden>
+          <button slot="activate" class="btn" id="install-firmware" disabled>Установить выбранную прошивку</button>
+          <span slot="unsupported"><b>Открой страницу в Chrome или Edge на компьютере:</b> этот браузер не умеет работать с USB.</span>
+          <span slot="not-allowed">Страница должна открываться по HTTPS.</span>
+        </esp-web-install-button>
+        <p class="device-download"><a id="firmware-download" hidden>Скачать образ приложения</a> · <a href="https://github.com/IKrasnodymov/papermanga/releases">Все выпуски и файлы установки</a></p>
+      </div>
+      <div class="panel warn">
+        <span class="stamp">Перед установкой</span>
+        <ul>
+          <li>Браузер проверяет семейство процессора, но не модель платы. Поэтому выбор модели нужно сверить вручную.</li>
+          <li>На нашем <b>X4 Classic с UC8279</b> работа проверена. Остальные варианты экспериментальные: они собраны, но на устройствах не проверены.</li>
+          <li>Сохрани резервную копию заводской прошивки перед экспериментальной установкой. Не включай «Erase device»: она удалит настройки и калибровку. Карта памяти не форматируется.</li>
+          <li>Не закрывай страницу и не отключай кабель, пока идёт установка.</li>
+          <li>Если браузер не видит читалку, возможно, продавец закрыл прошивку. Не обходи это сторонними программами.</li>
+          <li>Для восстановления нужна прошивка именно своей модели. CrossPoint можно установить через <a href="https://crosspointreader.com/#flash-tools">его сайт</a>, если устройство поддерживается.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="applications">
+  <div class="wrap">
+    <span class="stamp">Приложения 0.4.0 · экспериментальные</span>
+    <h2 class="section display">Kobo, PocketBook и Android</h2>
+    <p class="sub">Общее ядро PaperManga: каталог, библиотека, история и чтение XTC / XTCH под размер экрана.</p>
+    <div class="validation"><strong>На физических устройствах не проверено — для всех трёх приложений.</strong>
+      Сборки и программные тесты прошли. Android запущен в эмуляторе. Работа E Ink, касаний, сна и батареи на конкретных моделях ещё не подтверждена.</div>
+    <div class="features app-downloads">
+      <article class="panel feature"><h3>Kobo</h3><p>Сенсорные Kobo Linux, ARM32. Запуск через установленный NickelMenu.</p>
+        <p><b>На устройстве не проверено.</b></p>
+        <a class="btn" href="https://github.com/IKrasnodymov/papermanga/releases/download/v0.4.0/papermanga-kobo-0.4.0.zip">Скачать ZIP</a>
+        <p class="meta">Распаковать в корень накопителя, включая скрытую папку .adds.</p></article>
+      <article class="panel feature"><h3>PocketBook</h3><p>PocketBook OS / InkView, ARM32 Linux. Приложение в штатном меню.</p>
+        <p><b>На устройстве не проверено.</b></p>
+        <a class="btn" href="https://github.com/IKrasnodymov/papermanga/releases/download/v0.4.0/papermanga-pocketbook-0.4.0.zip">Скачать ZIP</a>
+        <p class="meta">Распаковать в корень накопителя. Для PocketBook на Android нужен APK.</p></article>
+      <article class="panel feature"><h3>Android</h3><p>Android 7.0 и новее: ARM64, ARM32 и x86_64. Импорт через системный выбор файлов.</p>
+        <p><b>На устройстве не проверено.</b></p>
+        <a class="btn" href="https://github.com/IKrasnodymov/papermanga/releases/download/v0.4.0/papermanga-android-0.4.0.apk">Скачать APK</a>
+        <p class="meta">Открыть APK на устройстве и разрешить установку. E Ink обновляет система ридера.</p></article>
+    </div>
+    <p class="meta"><a href="https://github.com/IKrasnodymov/papermanga/blob/main/docs/APPLICATIONS.md">Установка, совместимость и удаление</a> ·
+      <a href="https://github.com/IKrasnodymov/papermanga/releases/download/v0.4.0/apps.json">Статусы и SHA-256</a> ·
+      <a href="https://github.com/IKrasnodymov/papermanga/releases/tag/v0.4.0">Выпуск и исходники библиотек</a></p>
+  </div>
+</section>
+
+<section id="faq" class="alt">
+  <div class="wrap">
+    <h2 class="section display">Вопросы</h2>
+    <div class="faq">
+      <div class="panel"><h3>Куда денется CrossPoint?</h3><p>В проверенном варианте X4 Classic он остаётся рядом с PaperManga.
+        Экспериментальные порты 0.3 используют самостоятельную PaperManga и собственные обновления.</p></div>
+      <div class="panel"><h3>Как войти в MangaLib?</h3><p>Подключи читалку к Wi‑Fi и открой «Wi‑Fi» на главном экране.
+        Там будет адрес — открой его в браузере телефона и войди в свой аккаунт.</p></div>
+      <div class="panel"><h3>Как обновить прошивку?</h3><p>Открой «Инфо» и нажми «Проверить». Обновление выбирается для конкретной платы.
+        Inkplate 6 с 4 МБ flash обновляется через этот сайт по USB.</p></div>
+      <div class="panel"><h3>Что умеют X3 и старый X4?</h3><p>Облегчённая версия читает ч/б XTC. Главы нужно подготовить в приложении на компьютере и передать по Wi‑Fi или на карту.</p></div>
+      <div class="panel"><h3>Как управлять через сенсор?</h3><p>В меню свайпы перемещают выбор, касание выбирает пункт. Нижняя панель — «Назад», ◀, ▶ и «Открыть».
+        В читалке касания по краям листают, в центре открывают меню. Долгое касание — назад; удержание «Открыть» на нижней панели вызывает действие удержания.</p></div>
+      <div class="panel"><h3>Откуда берётся манга?</h3><p>Из сервисов, которые ты подключаешь сам: MangaDex и MangaLib.
+        PaperManga ничего не хранит и не распространяет. Права на мангу принадлежат авторам и издателям.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><b class="kanji-inline">漫</b> <b class="display">PaperManga</b> · прошивки 0.3.0 · приложения 0.4.0</div>
+    <div><a href="https://github.com/IKrasnodymov/papermanga">GitHub</a> · <a href="licenses/THIRD_PARTY.md">Библиотеки и лицензии</a></div>
+  </div>
+</footer>
+
+<script src="devices.js" defer></script>
+</body>
+</html>

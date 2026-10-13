@@ -1,6 +1,6 @@
 # PaperManga
 
-Прошивки для читалок **ESP32, ESP32-S3 и ESP32-C3**: каталог манги, библиотека и чтение XTC/XTCH. Варианты с PSRAM готовят главы прямо на читалке; старые X4 и X3 получают ч/б XTC, подготовленный на компьютере.
+Прошивки для читалок **ESP32, ESP32-S3 и ESP32-C3** и приложения для **Kobo, PocketBook и Android**: каталог манги, библиотека и чтение XTC/XTCH. Варианты с PSRAM готовят главы прямо на читалке; старые X4 и X3 получают ч/б XTC, подготовленный на компьютере.
 
 **Установить:** https://ikrasnodymov.github.io/papermanga/ (Chrome или Edge на компьютере, читалка по USB).
 
@@ -30,6 +30,27 @@
 
 На сайте выберите точную модель: у каждой платы свой установочный манифест. X3 и старый X4 используют ч/б XTC, подготовленный на компьютере. Варианты 0.3.0 работают самостоятельно; соседний CrossPoint сохраняется только в прежнем варианте X4 Classic. Inkplate 6 с 4 МБ flash обновляется по USB через сайт. Сенсор: свайпы перемещают выбор, касание выбирает, нижняя панель предоставляет кнопки. BOOX Picco пока использует физические кнопки: короткие ▲/▼, удержание ◀/▶, короткое ОК выбирает, удержание ОК возвращает назад.
 
+
+
+
+## Приложения Kobo, PocketBook и Android — 0.4.0
+
+**Все три не проверены на физических устройствах.** Сборки и программные тесты прошли; Android запущен в эмуляторе. Экран, касания, сон и батарея конкретных ридеров ещё не подтверждены.
+
+| Приложение | Файл | Совместимость первой сборки |
+|---|---|---|
+| Kobo | [ZIP](https://github.com/IKrasnodymov/papermanga/releases/download/v0.4.0/papermanga-kobo-0.4.0.zip) | Сенсорный Kobo Linux ARM32 + NickelMenu |
+| PocketBook | [ZIP](https://github.com/IKrasnodymov/papermanga/releases/download/v0.4.0/papermanga-pocketbook-0.4.0.zip) | PocketBook OS / InkView ARM32 Linux |
+| Android | [APK](https://github.com/IKrasnodymov/papermanga/releases/download/v0.4.0/papermanga-android-0.4.0.apk) | Android 7.0+; ARM64 / ARM32 / x86_64 |
+
+[Инструкции установки и ограничения моделей](docs/APPLICATIONS.md). Приложения читают XTC/XTCH, сохраняют историю и готовят главы из каталога под доступную область экрана. PocketBook на Android использует APK; Linux ARM64, включая InkPad One, не входит в ARM32-пакет.
+
+[apps.json: SHA-256 и статусы](https://github.com/IKrasnodymov/papermanga/releases/download/v0.4.0/apps.json) · [Лицензии и исходники библиотек](https://github.com/IKrasnodymov/papermanga/releases/download/v0.4.0/papermanga-apps-0.4.0-third-party.zip).
+
+
+<img src="docs/shots/android.png" width="240" alt="PaperManga Android: эмулятор, меню чтения">
+
+Android в эмуляторе, тестовая глава.
 
 ## Как это выглядит
 
